@@ -10,9 +10,11 @@ import {
 import { Button } from "@/components/ui/button";
 //import { Card, CardContent } from "@/components/ui/card";
 import { Footer } from "@/components/footer";
+import { Header } from "@/components/header";
 export default function HomePage() {
   return (
     <div className="flex min-h-screen flex-col">
+      <Header />
       <main className="flex-1">
         {/* Hero Section */}
         <section className="relative overflow-hidden bg-gradient-to-br from-muted/50 to-muted">
@@ -79,7 +81,7 @@ export default function HomePage() {
               </div>
               <div className="flex items-start gap-4">
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-primary/10">
-                  {/* <CreditCard className="h-6 w-6 text-primary" /> */}
+                  <CreditCard className="h-6 w-6 text-primary" />
                 </div>
                 <div>
                   <h3 className="mb-1 font-semibold">Retours faciles</h3>

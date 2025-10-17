@@ -1,0 +1,221 @@
+{
+  "users": [
+    {
+      "id": "user_34Cs8gUYoV77Z2ozLkrdm00G0lR",
+      "email": "halimchoukani@gmail.com",
+      "firstName": "Choukani",
+      "lastName": "Halim",
+      "createdAt": "2025-10-17T19:31:23.082Z",
+      "password": "password123"
+    }
+  ],
+  "categories": [
+    {
+      "id": "electronics",
+      "name": "Électronique",
+      "image": "/modern-electronics.png",
+      "productCount": 24
+    },
+    {
+      "id": "fashion",
+      "name": "Mode",
+      "image": "/fashion-clothing-on-hangers.jpg",
+      "productCount": 48
+    },
+    {
+      "id": "home",
+      "name": "Maison",
+      "image": "/modern-home-decor.png",
+      "productCount": 36
+    },
+    {
+      "id": "sports",
+      "name": "Sports",
+      "image": "/assorted-sports-gear.png",
+      "productCount": 32
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "name": "Casque Sans Fil Premium",
+      "description": "Casque audio sans fil avec réduction de bruit active, autonomie de 30 heures et son haute fidélité.",
+      "price": 299.99,
+      "originalPrice": 399.99,
+      "category": "electronics",
+      "image": "/premium-wireless-headphones.png",
+      "images": [
+        "/premium-wireless-headphones-front-view.jpg",
+        "/premium-wireless-headphones-side.png",
+        "/premium-wireless-headphones-folded.png"
+      ],
+      "rating": 4.8,
+      "reviews": 342,
+      "stock": 45,
+      "features": [
+        "Réduction de bruit active",
+        "Autonomie 30h",
+        "Bluetooth 5.0",
+        "Pliable",
+        "Microphone intégré"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Montre Connectée Sport",
+      "description": "Montre intelligente avec suivi d'activité, GPS intégré et résistance à l'eau jusqu'à 50m.",
+      "price": 249.99,
+      "category": "electronics",
+      "image": "/sport-smartwatch.jpg",
+      "images": [
+        "/sport-smartwatch-display.jpg",
+        "/sport-smartwatch-on-wrist.jpg",
+        "/sport-smartwatch-charging.jpg"
+      ],
+      "rating": 4.6,
+      "reviews": 218,
+      "stock": 32,
+      "features": [
+        "GPS intégré",
+        "Étanche 50m",
+        "Suivi cardiaque",
+        "7 jours d'autonomie"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Sac à Dos Urbain",
+      "description": "Sac à dos élégant et fonctionnel avec compartiment pour ordinateur portable 15 pouces et port USB.",
+      "price": 79.99,
+      "originalPrice": 99.99,
+      "category": "fashion",
+      "image": "/modern-urban-backpack.png",
+      "images": [
+        "/urban-backpack-front.jpg",
+        "/urban-backpack-open-compartments.jpg",
+        "/urban-backpack-worn.jpg"
+      ],
+      "rating": 4.7,
+      "reviews": 156,
+      "stock": 68,
+      "features": [
+        "Compartiment laptop 15''",
+        "Port USB",
+        "Imperméable",
+        "Bretelles ergonomiques"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Lampe LED Intelligente",
+      "description": "Lampe de bureau LED avec contrôle tactile, température de couleur ajustable et port de charge USB.",
+      "price": 59.99,
+      "category": "home",
+      "image": "/smart-led-desk-lamp.jpg",
+      "images": [
+        "/led-desk-lamp-on.jpg",
+        "/led-desk-lamp-different-colors.jpg",
+        "/led-desk-lamp-on-desk.jpg"
+      ],
+      "rating": 4.5,
+      "reviews": 89,
+      "stock": 124,
+      "features": [
+        "Contrôle tactile",
+        "3 températures de couleur",
+        "Port USB",
+        "Économie d'énergie"
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Tapis de Yoga Premium",
+      "description": "Tapis de yoga antidérapant en matériau écologique, épaisseur 6mm pour un confort optimal.",
+      "price": 49.99,
+      "category": "sports",
+      "image": "/premium-yoga-mat-rolled.jpg",
+      "images": [
+        "/yoga-mat-unrolled.jpg",
+        "/yoga-mat-in-use.png",
+        "/yoga-mat-texture-close-up.jpg"
+      ],
+      "rating": 4.9,
+      "reviews": 267,
+      "stock": 91,
+      "features": [
+        "Antidérapant",
+        "Écologique",
+        "6mm d'épaisseur",
+        "Sac de transport inclus"
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Cafetière Automatique",
+      "description": "Machine à café programmable avec broyeur intégré, 12 tasses et fonction maintien au chaud.",
+      "price": 189.99,
+      "originalPrice": 249.99,
+      "category": "home",
+      "image": "/automatic-coffee-maker.jpg",
+      "images": [
+        "/placeholder.svg?height=600&width=600",
+        "/placeholder.svg?height=600&width=600",
+        "/placeholder.svg?height=600&width=600"
+      ],
+      "rating": 4.6,
+      "reviews": 178,
+      "stock": 23,
+      "features": [
+        "Broyeur intégré",
+        "Programmable",
+        "12 tasses",
+        "Maintien au chaud"
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Baskets Running Pro",
+      "description": "Chaussures de course légères avec amorti réactif et semelle respirante pour performances optimales.",
+      "price": 129.99,
+      "category": "sports",
+      "image": "/professional-running-shoes.png",
+      "images": [
+        "/running-shoes-side-view.png",
+        "/running-shoes-sole-detail.jpg",
+        "/placeholder.svg?height=600&width=600"
+      ],
+      "rating": 4.7,
+      "reviews": 423,
+      "stock": 156,
+      "features": [
+        "Amorti réactif",
+        "Respirant",
+        "Léger",
+        "Semelle antidérapante"
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Enceinte Bluetooth Portable",
+      "description": "Enceinte sans fil étanche avec son 360°, autonomie 24h et résistance aux chocs.",
+      "price": 89.99,
+      "originalPrice": 119.99,
+      "category": "electronics",
+      "image": "/placeholder.svg?height=400&width=400",
+      "images": [
+        "/placeholder.svg?height=600&width=600",
+        "/placeholder.svg?height=600&width=600",
+        "/placeholder.svg?height=600&width=600"
+      ],
+      "rating": 4.8,
+      "reviews": 312,
+      "stock": 87,
+      "features": [
+        "Son 360°",
+        "Étanche IPX7",
+        "24h d'autonomie",
+        "Résistant aux chocs"
+      ]
+    }
+  ]
+}
