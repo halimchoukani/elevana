@@ -42,7 +42,7 @@ export default function HomePage() {
               </div>
               <div className="relative aspect-square lg:aspect-auto lg:h-[500px]">
                 <Image
-                  src="/placeholder.svg?height=500&width=500"
+                  src="/hero.png"
                   alt="Shopping"
                   fill
                   className="object-contain"
