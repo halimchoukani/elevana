@@ -8,21 +8,21 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ProfileInfo } from "@/components/profile-info";
 import { OrderHistory } from "@/components/order-history";
 import { useAuth } from "@/lib/AuthContext";
+import { Loading } from "@/components/loading";
 
 export default function ProfilePage() {
   const router = useRouter();
-  const { isAuthenticated, user } = useAuth();
+  const { isAuthenticated, user, loading } = useAuth();
 
   useEffect(() => {
-    if (!isAuthenticated) {
+    if (!loading && !isAuthenticated) {
       router.push("/login");
     }
-  }, [isAuthenticated, router]);
+  }, [isAuthenticated, loading, router]);
 
-  if (!isAuthenticated || !user) {
-    return null;
+  if (loading || !user) {
+    return <Loading />;
   }
-
   return (
     <div className="flex min-h-screen flex-col">
       <Header />
@@ -35,7 +35,7 @@ export default function ProfilePage() {
               Mon compte
             </h1>
             <p className="text-lg text-muted-foreground">
-              Bienvenue, {user.firstName} {user.lastName}
+              Bienvenue, {user?.firstName} {user?.lastName}
             </p>
           </div>
         </section>

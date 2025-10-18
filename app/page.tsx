@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 import Image from "next/image";
 import {
@@ -11,7 +12,23 @@ import { Button } from "@/components/ui/button";
 //import { Card, CardContent } from "@/components/ui/card";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
+import { Loading } from "@/components/loading";
+import { useAuth } from "@/lib/AuthContext";
+import { Card, CardContent } from "@/components/ui/card";
+import { ProductsContext } from "@/lib/mock-data";
+import { ProductCard } from "@/components/product-card";
 export default function HomePage() {
+  const { loading } = useAuth();
+  const {
+    categories,
+    loading: loadingProducts,
+    featuredProducts,
+    products,
+  } = ProductsContext();
+  if (loading || loadingProducts) {
+    return <Loading />;
+  }
+
   return (
     <div className="flex min-h-screen flex-col">
       <Header />
@@ -117,7 +134,7 @@ export default function HomePage() {
               </p>
             </div>
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-              {/*categories.map((category) => (
+              {categories.map((category) => (
                 <Link key={category.id} href={`/categories/${category.id}`}>
                   <Card className="group overflow-hidden transition-all hover:shadow-lg">
                     <CardContent className="p-0">
@@ -141,7 +158,7 @@ export default function HomePage() {
                     </CardContent>
                   </Card>
                 </Link>
-              ))*/}
+              ))}
             </div>
           </div>
         </section>
@@ -170,7 +187,9 @@ export default function HomePage() {
               </Button>
             </div>
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-              // Featured products mapping
+              {featuredProducts.map((product) => (
+                <ProductCard key={product.id} product={product} />
+              ))}
             </div>
             <div className="mt-8 text-center md:hidden">
               <Button variant="outline" asChild>

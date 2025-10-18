@@ -15,10 +15,11 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { useAuth } from "@/lib/AuthContext";
+import { Loading } from "./loading";
 
 export function Header() {
   //const { totalItems } = useCart();
-  const { isAuthenticated, user } = useAuth();
+  const { isAuthenticated, loading } = useAuth();
   const totalItems = 2;
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -135,7 +136,7 @@ export function Header() {
                   </Link>
                   <hr className="my-2" />
                   <div className="text-lg font-medium hover:text-primary">
-                    {!isAuthenticated ? (
+                    {!isAuthenticated && !loading ? (
                       <Button asChild>
                         <Link href="/login">Se Connecter</Link>
                       </Button>
