@@ -1,12 +1,20 @@
 {
   "users": [
     {
-      "id": "user_34Cs8gUYoV77Z2ozLkrdm00G0lR",
+      "id": "1760776070945",
+      "firstName": "Halim",
+      "lastName": "Choukani",
       "email": "halimchoukani@gmail.com",
-      "firstName": "Choukani",
-      "lastName": "Halim",
-      "createdAt": "2025-10-17T19:31:23.082Z",
-      "password": "password123"
+      "password": "password123",
+      "createdAt": "2025-10-18T08:27:50.945Z"
+    },
+    {
+      "id": "1760776647335",
+      "firstName": "Halim",
+      "lastName": "Choukani",
+      "email": "halimchoukani@gmail.com",
+      "password": "password123",
+      "createdAt": "2025-10-18T08:37:27.335Z"
     }
   ],
   "categories": [
@@ -37,7 +45,7 @@
   ],
   "products": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Casque Sans Fil Premium",
       "description": "Casque audio sans fil avec réduction de bruit active, autonomie de 30 heures et son haute fidélité.",
       "price": 299.99,
@@ -61,7 +69,7 @@
       ]
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Montre Connectée Sport",
       "description": "Montre intelligente avec suivi d'activité, GPS intégré et résistance à l'eau jusqu'à 50m.",
       "price": 249.99,
@@ -83,7 +91,7 @@
       ]
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Sac à Dos Urbain",
       "description": "Sac à dos élégant et fonctionnel avec compartiment pour ordinateur portable 15 pouces et port USB.",
       "price": 79.99,
@@ -106,7 +114,7 @@
       ]
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Lampe LED Intelligente",
       "description": "Lampe de bureau LED avec contrôle tactile, température de couleur ajustable et port de charge USB.",
       "price": 59.99,
@@ -128,7 +136,7 @@
       ]
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "Tapis de Yoga Premium",
       "description": "Tapis de yoga antidérapant en matériau écologique, épaisseur 6mm pour un confort optimal.",
       "price": 49.99,
@@ -150,7 +158,7 @@
       ]
     },
     {
-      "id": 6,
+      "id": "6",
       "name": "Cafetière Automatique",
       "description": "Machine à café programmable avec broyeur intégré, 12 tasses et fonction maintien au chaud.",
       "price": 189.99,
@@ -173,7 +181,7 @@
       ]
     },
     {
-      "id": 7,
+      "id": "7",
       "name": "Baskets Running Pro",
       "description": "Chaussures de course légères avec amorti réactif et semelle respirante pour performances optimales.",
       "price": 129.99,
@@ -195,7 +203,7 @@
       ]
     },
     {
-      "id": 8,
+      "id": "8",
       "name": "Enceinte Bluetooth Portable",
       "description": "Enceinte sans fil étanche avec son 360°, autonomie 24h et résistance aux chocs.",
       "price": 89.99,

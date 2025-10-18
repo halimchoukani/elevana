@@ -12,9 +12,7 @@ import { User } from "@/db/models";
 interface AuthContextType {
   user: User | null;
   login: (email: string, password: string) => Promise<boolean>;
-  register: (
-    userData: Omit<User, "id"> & { password: string }
-  ) => Promise<boolean>;
+  register: (userData: User & { password: string }) => Promise<boolean>;
   logout: () => void;
   isAuthenticated: boolean;
 }
@@ -60,37 +58,51 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       throw error;
     }
   };
-
+  const checkEmailExist = async (email: string): Promise<boolean> => {
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+    try {
+      const response = await fetch(
+        `http://localhost:5000/users?email=${email}`,
+        {
+          method: "GET",
+        }
+      );
+      const user = await response.json();
+      const userData = user[0] as User | undefined;
+      if (userData) {
+        return true;
+      } else {
+        return false;
+      }
+    } catch (error) {
+      console.error("Email finding failed:", error);
+      throw error;
+    }
+  };
   const register = async (
-    userData: Omit<User, "id"> & { password: string }
+    userData: User & { password: string }
   ): Promise<boolean> => {
     // Simulate API call
     await new Promise((resolve) => setTimeout(resolve, 1000));
-
-    const users = JSON.parse(localStorage.getItem("users") || "[]");
-
-    // Check if email already exists
-    if (users.some((u: User) => u.email === userData.email)) {
+    try {
+      if (userData === null) return false;
+      if (!(await checkEmailExist(userData.email))) {
+        const response = await fetch(`http://localhost:5000/users`, {
+          method: "POST",
+          body: JSON.stringify(userData),
+        });
+        const user = await response.json();
+        if (user) {
+          return true;
+        } else {
+          return false;
+        }
+      }
       return false;
+    } catch (error) {
+      console.error("Register failed:", error);
+      throw error;
     }
-
-    const newUser: User = {
-      id: Date.now().toString(),
-      email: userData.email,
-      firstName: userData.firstName,
-      lastName: userData.lastName,
-      password: userData.password,
-    };
-
-    // Store user with password in users array
-    users.push({ ...newUser, password: userData.password });
-    localStorage.setItem("users", JSON.stringify(users));
-
-    // Store user without password in current session
-    setUser(newUser);
-    localStorage.setItem("user", JSON.stringify(newUser));
-
-    return true;
   };
 
   const logout = () => {
