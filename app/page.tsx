@@ -15,7 +15,7 @@ import { Header } from "@/components/header";
 import { Loading } from "@/components/loading";
 import { useAuth } from "@/lib/AuthContext";
 import { Card, CardContent } from "@/components/ui/card";
-import { ProductsContext } from "@/lib/mock-data";
+import { ProductsContext } from "@/lib/ProductsContext";
 import { ProductCard } from "@/components/product-card";
 export default function HomePage() {
   const { loading } = useAuth();
