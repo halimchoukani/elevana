@@ -1,7 +1,7 @@
 import { Category, Product } from "@/db/models";
 import { useEffect, useState } from "react";
 
-export function ProductsContext() {
+export function useProducts() {
   const [products, setProducts] = useState<Product[]>([]);
   const [categories, setCategories] = useState<Category[]>([]);
   const [loading, setLoading] = useState<boolean>(true);

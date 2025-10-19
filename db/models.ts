@@ -11,6 +11,7 @@ export interface Product {
   reviews: number;
   stock: number;
   features?: string[];
+  createdAt: string;
 }
 
 export interface Category {

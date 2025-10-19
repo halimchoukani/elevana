@@ -60,7 +60,8 @@
         "Bluetooth 5.0",
         "Pliable",
         "Microphone intégré"
-      ]
+      ],
+      "createdAt": "2024-05-10T14:48:00.000Z"
     },
     {
       "id": "2",
@@ -82,7 +83,8 @@
         "Étanche 50m",
         "Suivi cardiaque",
         "7 jours d'autonomie"
-      ]
+      ],
+      "createdAt": "2024-06-15T09:30:00.000Z"
     },
     {
       "id": "3",
@@ -105,7 +107,8 @@
         "Port USB",
         "Imperméable",
         "Bretelles ergonomiques"
-      ]
+      ],
+      "createdAt": "2024-07-20T11:15:00.000Z"
     },
     {
       "id": "4",
@@ -127,7 +130,8 @@
         "3 températures de couleur",
         "Port USB",
         "Économie d'énergie"
-      ]
+      ],
+      "createdAt": "2024-08-01T10:00:00.000Z"
     },
     {
       "id": "5",
@@ -149,7 +153,8 @@
         "Écologique",
         "6mm d'épaisseur",
         "Sac de transport inclus"
-      ]
+      ],
+      "createdAt": "2024-08-01T10:00:00.000Z"
     },
     {
       "id": "6",
@@ -172,7 +177,8 @@
         "Programmable",
         "12 tasses",
         "Maintien au chaud"
-      ]
+      ],
+      "createdAt": "2024-09-05T12:00:00.000Z"
     },
     {
       "id": "7",
@@ -194,7 +200,8 @@
         "Respirant",
         "Léger",
         "Semelle antidérapante"
-      ]
+      ],
+      "createdAt": "2024-10-10T15:45:00.000Z"
     },
     {
       "id": "8",
@@ -217,7 +224,8 @@
         "Étanche IPX7",
         "24h d'autonomie",
         "Résistant aux chocs"
-      ]
+      ],
+      "createdAt": "2024-11-12T09:20:00.000Z"
     }
   ]
 }
