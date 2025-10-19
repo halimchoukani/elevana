@@ -9,14 +9,13 @@ import { useEffect, useRef, useState } from "react";
 
 export default function ProductsPage() {
   const { products, loading: productsLoading, categories } = useProducts();
-
   const sortOptionSelect = useRef(null);
   const [filteredProducts, setFilteredProducts] = useState(products);
   useEffect(() => {
     setFilteredProducts(products || []);
   }, [products]);
   const handleSort = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    const sortedProducts = [...products];
+    const sortedProducts = [...filteredProducts];
     switch (event.target.value) {
       case "price-asc":
         sortedProducts.sort((a, b) => a.price - b.price);
@@ -64,8 +63,8 @@ export default function ProductsPage() {
               <aside className="hidden lg:block">
                 <ProductFilters
                   categories={categories}
-                  filteredProducts={filteredProducts}
-                  setFilteredProducts={setFilteredProducts}
+                  products={products}
+                  onFilterChange={setFilteredProducts}
                 />
               </aside>
 
