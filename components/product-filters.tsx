@@ -17,11 +17,15 @@ export function ProductFilters({
   products: Product[];
   onFilterChange: (filtered: Product[]) => void;
 }) {
-  const [priceRange, setPriceRange] = useState([0, 500]);
   const [selectedCategories, setSelectedCategories] = useState<number[]>([]);
   const [selectedRatings, setSelectedRatings] = useState<number[]>([]);
   const [inStock, setInStock] = useState(false);
   const [onSale, setOnSale] = useState(false);
+  const maxPrice = products.reduce(
+    (max, product) => (product.price > max ? product.price : max),
+    0
+  );
+  const [priceRange, setPriceRange] = useState([0, maxPrice]);
 
   useEffect(() => {
     let filtered: Product[] = products;
@@ -96,7 +100,7 @@ export function ProductFilters({
           <Slider
             value={priceRange}
             onValueChange={setPriceRange}
-            max={500}
+            max={maxPrice}
             step={10}
             className="w-full"
           />
