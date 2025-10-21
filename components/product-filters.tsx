@@ -7,7 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Category, Product } from "@/db/models";
-import { useSearchParams } from "next/navigation";
+import { useSearchParams, useRouter, usePathname } from "next/navigation";
 
 export function ProductFilters({
   categories,
@@ -18,6 +18,7 @@ export function ProductFilters({
   products: Product[];
   onFilterChange: (filtered: Product[]) => void;
 }) {
+  const router = useRouter();
   const searchParams = useSearchParams();
   const category = searchParams.get("category") || "";
   const [selectedCategories, setSelectedCategories] = useState<number[]>([]);
@@ -28,26 +29,26 @@ export function ProductFilters({
     (max, product) => (product.price > max ? product.price : max),
     0
   );
+  const pathName = usePathname();
   const [priceRange, setPriceRange] = useState([0, maxPrice]);
   useEffect(() => {
-    if (category !== "") {
-      const catId = categories.indexOf(
-        categories.filter((c) => {
-          return c.id === category;
-        })[0]
+    if (category) {
+      const cat = categories.find(
+        (c) => c.id.toLowerCase() === category.toLowerCase()
       );
 
-      if (!Number.isNaN(catId)) {
-        console.log(catId);
-
-        setSelectedCategories((prev) =>
-          prev.includes(catId)
-            ? prev.filter((id) => id !== catId)
-            : [...prev, catId]
-        );
+      if (cat && !selectedCategories.includes(cat.id as unknown as number)) {
+        setSelectedCategories([
+          ...selectedCategories,
+          cat.id as unknown as number,
+        ]);
+      } else {
+        pathName.replace("category", "");
       }
+    } else {
+      setSelectedCategories([]);
     }
-  }, [category]);
+  }, [category, categories]);
   useEffect(() => {
     let filtered: Product[] = products;
 
@@ -91,6 +92,7 @@ export function ProductFilters({
   ]);
 
   const handleCategoryChange = (categoryId: number, checked: boolean) => {
+    router.replace("/products", { scroll: false });
     setSelectedCategories((prev) =>
       checked ? [...prev, categoryId] : prev.filter((id) => id !== categoryId)
     );

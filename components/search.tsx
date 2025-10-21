@@ -6,7 +6,7 @@ import { Product } from "@/db/models";
 import Image from "next/image";
 import Link from "next/link";
 
-function SearchProducts() {
+function SearchProducts({ className }: { className?: string }) {
   const [searchValue, setSearchValue] = useState<string>("");
   const { products } = useProducts();
   const [searchedItems, setSearchedItems] = useState<Product[]>([]);
@@ -23,7 +23,7 @@ function SearchProducts() {
     }, 500);
   }, [searchValue]);
   return (
-    <div className="hidden flex-1 max-w-md mx-8 md:block">
+    <div className={className}>
       <div className="relative">
         <div>
           <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />

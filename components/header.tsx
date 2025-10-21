@@ -66,7 +66,7 @@ export function Header() {
                         return (
                           <li>
                             <NavigationMenuLink asChild>
-                              <Link href="#">
+                              <Link href={`/products?category=${categorie.id}`}>
                                 <div className="font-medium flex justify-start items-center gap-4">
                                   <img
                                     className="w-8 h-8 rounded-s"
@@ -94,7 +94,7 @@ export function Header() {
           </nav>
 
           {/* Search Bar - Desktop */}
-          <SearchProducts />
+          <SearchProducts className="hidden flex-1 max-w-md mx-8 md:block" />
 
           {/* Actions */}
           <div className="flex items-center gap-2">
@@ -145,13 +145,39 @@ export function Header() {
                   >
                     Produits
                   </Link>
-                  <Link
-                    href="/categories"
-                    className="text-lg font-medium hover:text-primary"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    Catégories
-                  </Link>
+                  <NavigationMenu>
+                    <NavigationMenuList>
+                      <NavigationMenuItem>
+                        <NavigationMenuTrigger>
+                          Categories
+                        </NavigationMenuTrigger>
+                        <NavigationMenuContent>
+                          <ul className="grid w-[300px] gap-4">
+                            {categories.map((categorie) => {
+                              return (
+                                <li>
+                                  <NavigationMenuLink asChild>
+                                    <Link
+                                      href={`/products?category=${categorie.id}`}
+                                    >
+                                      <div className="font-medium flex justify-start items-center gap-4">
+                                        <img
+                                          className="w-8 h-8 rounded-s"
+                                          src={categorie.image}
+                                          alt={categorie.name}
+                                        />
+                                        <span>{categorie.name}</span>
+                                      </div>
+                                    </Link>
+                                  </NavigationMenuLink>
+                                </li>
+                              );
+                            })}
+                          </ul>
+                        </NavigationMenuContent>
+                      </NavigationMenuItem>
+                    </NavigationMenuList>
+                  </NavigationMenu>
                   <Link
                     href="/deals"
                     className="text-lg font-medium hover:text-primary"
@@ -180,16 +206,7 @@ export function Header() {
         </div>
 
         {/* Mobile Search */}
-        <div className="pb-4 md:hidden">
-          <div className="relative">
-            <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-            <Input
-              type="search"
-              placeholder="Rechercher..."
-              className="pl-10"
-            />
-          </div>
-        </div>
+        <SearchProducts className="pb-4 md:hidden" />
       </div>
     </header>
   );
