@@ -7,6 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Category, Product } from "@/db/models";
+import { useSearchParams } from "next/navigation";
 
 export function ProductFilters({
   categories,
@@ -17,6 +18,8 @@ export function ProductFilters({
   products: Product[];
   onFilterChange: (filtered: Product[]) => void;
 }) {
+  const searchParams = useSearchParams();
+  const category = searchParams.get("category") || "";
   const [selectedCategories, setSelectedCategories] = useState<number[]>([]);
   const [selectedRatings, setSelectedRatings] = useState<number[]>([]);
   const [inStock, setInStock] = useState(false);
@@ -26,7 +29,25 @@ export function ProductFilters({
     0
   );
   const [priceRange, setPriceRange] = useState([0, maxPrice]);
+  useEffect(() => {
+    if (category !== "") {
+      const catId = categories.indexOf(
+        categories.filter((c) => {
+          return c.id === category;
+        })[0]
+      );
 
+      if (!Number.isNaN(catId)) {
+        console.log(catId);
+
+        setSelectedCategories((prev) =>
+          prev.includes(catId)
+            ? prev.filter((id) => id !== catId)
+            : [...prev, catId]
+        );
+      }
+    }
+  }, [category]);
   useEffect(() => {
     let filtered: Product[] = products;
 

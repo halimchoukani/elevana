@@ -10,6 +10,7 @@ import { useEffect, useRef, useState } from "react";
 export default function ProductsPage() {
   const { products, loading: productsLoading, categories } = useProducts();
   const sortOptionSelect = useRef(null);
+
   const [filteredProducts, setFilteredProducts] = useState(products);
   useEffect(() => {
     setFilteredProducts(products || []);
