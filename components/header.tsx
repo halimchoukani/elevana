@@ -1,5 +1,14 @@
 "use client";
-
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuIndicator,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  NavigationMenuViewport,
+} from "@/components/ui/navigation-menu";
 import Link from "next/link";
 import { ShoppingCart, User, Search, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -16,13 +25,15 @@ import {
 } from "@/components/ui/sheet";
 import { useAuth } from "@/lib/AuthContext";
 import { Loading } from "./loading";
+import { useProducts } from "@/lib/ProductsContext";
+import SearchProducts from "./search";
 
 export function Header() {
   //const { totalItems } = useCart();
   const { isAuthenticated, loading } = useAuth();
   const totalItems = 2;
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
+  const { categories } = useProducts();
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container mx-auto px-4">
@@ -45,12 +56,35 @@ export function Header() {
             >
               Produits
             </Link>
-            <Link
-              href="/categories"
-              className="text-sm font-medium hover:text-primary"
-            >
-              Catégories
-            </Link>
+            <NavigationMenu>
+              <NavigationMenuList>
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger>Categories</NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <ul className="grid w-[300px] gap-4">
+                      {categories.map((categorie) => {
+                        return (
+                          <li>
+                            <NavigationMenuLink asChild>
+                              <Link href="#">
+                                <div className="font-medium flex justify-start items-center gap-4">
+                                  <img
+                                    className="w-8 h-8 rounded-s"
+                                    src={categorie.image}
+                                    alt={categorie.name}
+                                  />
+                                  <span>{categorie.name}</span>
+                                </div>
+                              </Link>
+                            </NavigationMenuLink>
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+              </NavigationMenuList>
+            </NavigationMenu>
             <Link
               href="/deals"
               className="text-sm font-medium hover:text-primary"
@@ -60,16 +94,7 @@ export function Header() {
           </nav>
 
           {/* Search Bar - Desktop */}
-          <div className="hidden flex-1 max-w-md mx-8 md:block">
-            <div className="relative">
-              <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-              <Input
-                type="search"
-                placeholder="Rechercher des produits..."
-                className="pl-10"
-              />
-            </div>
-          </div>
+          <SearchProducts />
 
           {/* Actions */}
           <div className="flex items-center gap-2">

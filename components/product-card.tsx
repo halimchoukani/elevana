@@ -43,7 +43,7 @@ export function ProductCard({ product }: ProductCardProps) {
               className="object-cover transition-transform group-hover:scale-105"
             />
             {discount > 0 && (
-              <Badge className="absolute right-2 top-2 bg-destructive text-destructive-foreground">
+              <Badge className="absolute right-2 top-2 bg-destructive text-destructive-foreground text-white">
                 -{discount}%
               </Badge>
             )}
