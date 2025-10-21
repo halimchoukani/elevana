@@ -1,8 +1,9 @@
 import { Category, Product } from "@/db/models";
 import { useEffect, useState } from "react";
 
-export function useProducts() {
+export function useProducts(params?: { id: number }) {
   const [products, setProducts] = useState<Product[]>([]);
+  const [product, setProduct] = useState<Product | null>(null);
   const [categories, setCategories] = useState<Category[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [featuredProducts, setFeaturedProducts] = useState<Product[]>([]);
@@ -21,7 +22,11 @@ export function useProducts() {
       getFeaturedProducts();
     }
   }, [products]);
-
+  useEffect(() => {
+    if (params?.id) {
+      getProductById();
+    }
+  }, [params?.id]);
   const getProducts = async () => {
     try {
       await new Promise((resolve) => setTimeout(resolve, 1000));
@@ -54,10 +59,22 @@ export function useProducts() {
     }
   };
 
+  const getProductById = async () => {
+    try {
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+      const res = await fetch("http://localhost:5000/products/" + params?.id);
+      const data = await res.json();
+      setProduct(data);
+    } catch (error) {
+      console.error("Error checking status:", error);
+    }
+  };
+
   return {
     products,
     featuredProducts,
     categories,
+    product,
     loading,
   };
 }
