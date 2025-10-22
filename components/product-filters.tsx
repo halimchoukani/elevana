@@ -39,7 +39,6 @@ export function ProductFilters({
 
       if (cat && !selectedCategories.includes(cat.id as unknown as number)) {
         setSelectedCategories([
-          ...selectedCategories,
           cat.id as unknown as number,
         ]);
       } else {
