@@ -8,7 +8,46 @@
       "createdAt": "2025-10-18T08:37:27.335Z",
       "phone": "+21656123197",
       "address": "",
-      "password": "password123"
+      "password": "password123",
+      "cart": [
+        {
+          "product": {
+            "id": "2",
+            "name": "Montre Connectée Sport",
+            "description": "Montre intelligente avec suivi d'activité, GPS intégré et résistance à l'eau jusqu'à 50m.",
+            "price": 249.99,
+            "category": "electronics",
+            "image": "/sport-smartwatch.jpg",
+            "images": [
+              "/sport-smartwatch-display.jpg",
+              "/sport-smartwatch-on-wrist.jpg",
+              "/sport-smartwatch-charging.jpg"
+            ],
+            "rating": 4.6,
+            "reviews": 218,
+            "stock": 32,
+            "features": [
+              "GPS intégré",
+              "Étanche 50m",
+              "Suivi cardiaque",
+              "7 jours d'autonomie"
+            ],
+            "createdAt": "2024-06-15T09:30:00.000Z"
+          },
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "1761158069182",
+      "firstName": "John",
+      "lastName": "Doe",
+      "email": "halimchoukani3@gmail.com",
+      "password": "password123",
+      "createdAt": "2025-10-22T18:34:29.182Z",
+      "phone": "+21656123197",
+      "address": "Heloo",
+      "cart": []
     }
   ],
   "categories": [
@@ -53,7 +92,7 @@
       ],
       "rating": 4.8,
       "reviews": 342,
-      "stock": 45,
+      "stock": 0,
       "features": [
         "Réduction de bruit active",
         "Autonomie 30h",
@@ -226,6 +265,339 @@
         "Résistant aux chocs"
       ],
       "createdAt": "2024-11-12T09:20:00.000Z"
+    }
+  ],
+  "orders": [
+    {
+      "id": "order_1761156821865",
+      "userId": 1760776647335,
+      "items": [
+        {
+          "product": {
+            "id": "1",
+            "name": "Casque Sans Fil Premium",
+            "description": "Casque audio sans fil avec réduction de bruit active, autonomie de 30 heures et son haute fidélité.",
+            "price": 299.99,
+            "originalPrice": 399.99,
+            "category": "electronics",
+            "image": "/premium-wireless-headphones.png",
+            "images": [
+              "/premium-wireless-headphones-front-view.jpg",
+              "/premium-wireless-headphones-side.png",
+              "/premium-wireless-headphones-folded.png"
+            ],
+            "rating": 4.8,
+            "reviews": 342,
+            "stock": 45,
+            "features": [
+              "Réduction de bruit active",
+              "Autonomie 30h",
+              "Bluetooth 5.0",
+              "Pliable",
+              "Microphone intégré"
+            ],
+            "createdAt": "2024-05-10T14:48:00.000Z"
+          },
+          "quantity": 1
+        }
+      ],
+      "totalAmount": 299.99,
+      "shippingAddress": "",
+      "orderDate": "2025-10-22T18:13:41.865Z",
+      "status": "processing"
+    },
+    {
+      "id": "order_1761157722424",
+      "userId": 1760776647335,
+      "items": [
+        {
+          "product": {
+            "id": "1",
+            "name": "Casque Sans Fil Premium",
+            "description": "Casque audio sans fil avec réduction de bruit active, autonomie de 30 heures et son haute fidélité.",
+            "price": 299.99,
+            "originalPrice": 399.99,
+            "category": "electronics",
+            "image": "/premium-wireless-headphones.png",
+            "images": [
+              "/premium-wireless-headphones-front-view.jpg",
+              "/premium-wireless-headphones-side.png",
+              "/premium-wireless-headphones-folded.png"
+            ],
+            "rating": 4.8,
+            "reviews": 342,
+            "stock": 45,
+            "features": [
+              "Réduction de bruit active",
+              "Autonomie 30h",
+              "Bluetooth 5.0",
+              "Pliable",
+              "Microphone intégré"
+            ],
+            "createdAt": "2024-05-10T14:48:00.000Z"
+          },
+          "quantity": 1
+        },
+        {
+          "product": {
+            "id": "2",
+            "name": "Montre Connectée Sport",
+            "description": "Montre intelligente avec suivi d'activité, GPS intégré et résistance à l'eau jusqu'à 50m.",
+            "price": 249.99,
+            "category": "electronics",
+            "image": "/sport-smartwatch.jpg",
+            "images": [
+              "/sport-smartwatch-display.jpg",
+              "/sport-smartwatch-on-wrist.jpg",
+              "/sport-smartwatch-charging.jpg"
+            ],
+            "rating": 4.6,
+            "reviews": 218,
+            "stock": 32,
+            "features": [
+              "GPS intégré",
+              "Étanche 50m",
+              "Suivi cardiaque",
+              "7 jours d'autonomie"
+            ],
+            "createdAt": "2024-06-15T09:30:00.000Z"
+          },
+          "quantity": 1
+        },
+        {
+          "product": {
+            "id": "3",
+            "name": "Sac à Dos Urbain",
+            "description": "Sac à dos élégant et fonctionnel avec compartiment pour ordinateur portable 15 pouces et port USB.",
+            "price": 79.99,
+            "originalPrice": 99.99,
+            "category": "fashion",
+            "image": "/modern-urban-backpack.png",
+            "images": [
+              "/urban-backpack-front.jpg",
+              "/urban-backpack-open-compartments.jpg",
+              "/urban-backpack-worn.jpg"
+            ],
+            "rating": 4.7,
+            "reviews": 156,
+            "stock": 68,
+            "features": [
+              "Compartiment laptop 15''",
+              "Port USB",
+              "Imperméable",
+              "Bretelles ergonomiques"
+            ],
+            "createdAt": "2024-07-20T11:15:00.000Z"
+          },
+          "quantity": 1
+        },
+        {
+          "product": {
+            "id": "4",
+            "name": "Lampe LED Intelligente",
+            "description": "Lampe de bureau LED avec contrôle tactile, température de couleur ajustable et port de charge USB.",
+            "price": 59.99,
+            "category": "home",
+            "image": "/smart-led-desk-lamp.jpg",
+            "images": [
+              "/led-desk-lamp-on.jpg",
+              "/led-desk-lamp-different-colors.jpg",
+              "/led-desk-lamp-on-desk.jpg"
+            ],
+            "rating": 4.5,
+            "reviews": 89,
+            "stock": 124,
+            "features": [
+              "Contrôle tactile",
+              "3 températures de couleur",
+              "Port USB",
+              "Économie d'énergie"
+            ],
+            "createdAt": "2024-08-01T10:00:00.000Z"
+          },
+          "quantity": 1
+        },
+        {
+          "product": {
+            "id": "5",
+            "name": "Tapis de Yoga Premium",
+            "description": "Tapis de yoga antidérapant en matériau écologique, épaisseur 6mm pour un confort optimal.",
+            "price": 49.99,
+            "category": "sports",
+            "image": "/premium-yoga-mat-rolled.jpg",
+            "images": [
+              "/yoga-mat-unrolled.jpg",
+              "/yoga-mat-in-use.png",
+              "/yoga-mat-texture-close-up.jpg"
+            ],
+            "rating": 4.9,
+            "reviews": 267,
+            "stock": 91,
+            "features": [
+              "Antidérapant",
+              "Écologique",
+              "6mm d'épaisseur",
+              "Sac de transport inclus"
+            ],
+            "createdAt": "2024-08-01T10:00:00.000Z"
+          },
+          "quantity": 1
+        }
+      ],
+      "totalAmount": 739.95,
+      "shippingAddress": "",
+      "orderDate": "2025-10-22T18:28:42.424Z",
+      "status": "processing"
+    },
+    {
+      "id": "order_1761158016870",
+      "userId": 1760776647335,
+      "items": [
+        {
+          "product": {
+            "id": "5",
+            "name": "Tapis de Yoga Premium",
+            "description": "Tapis de yoga antidérapant en matériau écologique, épaisseur 6mm pour un confort optimal.",
+            "price": 49.99,
+            "category": "sports",
+            "image": "/premium-yoga-mat-rolled.jpg",
+            "images": [
+              "/yoga-mat-unrolled.jpg",
+              "/yoga-mat-in-use.png",
+              "/yoga-mat-texture-close-up.jpg"
+            ],
+            "rating": 4.9,
+            "reviews": 267,
+            "stock": 91,
+            "features": [
+              "Antidérapant",
+              "Écologique",
+              "6mm d'épaisseur",
+              "Sac de transport inclus"
+            ],
+            "createdAt": "2024-08-01T10:00:00.000Z"
+          },
+          "quantity": 1
+        }
+      ],
+      "totalAmount": 49.99,
+      "shippingAddress": "",
+      "orderDate": "2025-10-22T18:33:36.870Z",
+      "status": "processing"
+    },
+    {
+      "id": "order_1761158152397",
+      "userId": 1761158069182,
+      "items": [
+        {
+          "product": {
+            "id": "1",
+            "name": "Casque Sans Fil Premium",
+            "description": "Casque audio sans fil avec réduction de bruit active, autonomie de 30 heures et son haute fidélité.",
+            "price": 299.99,
+            "originalPrice": 399.99,
+            "category": "electronics",
+            "image": "/premium-wireless-headphones.png",
+            "images": [
+              "/premium-wireless-headphones-front-view.jpg",
+              "/premium-wireless-headphones-side.png",
+              "/premium-wireless-headphones-folded.png"
+            ],
+            "rating": 4.8,
+            "reviews": 342,
+            "stock": 45,
+            "features": [
+              "Réduction de bruit active",
+              "Autonomie 30h",
+              "Bluetooth 5.0",
+              "Pliable",
+              "Microphone intégré"
+            ],
+            "createdAt": "2024-05-10T14:48:00.000Z"
+          },
+          "quantity": 1
+        }
+      ],
+      "totalAmount": 299.99,
+      "shippingAddress": "",
+      "orderDate": "2025-10-22T18:35:52.397Z",
+      "status": "processing"
+    },
+    {
+      "id": "order_1761160596363",
+      "userId": 1761158069182,
+      "items": [
+        {
+          "product": {
+            "id": "1",
+            "name": "Casque Sans Fil Premium",
+            "description": "Casque audio sans fil avec réduction de bruit active, autonomie de 30 heures et son haute fidélité.",
+            "price": 299.99,
+            "originalPrice": 399.99,
+            "category": "electronics",
+            "image": "/premium-wireless-headphones.png",
+            "images": [
+              "/premium-wireless-headphones-front-view.jpg",
+              "/premium-wireless-headphones-side.png",
+              "/premium-wireless-headphones-folded.png"
+            ],
+            "rating": 4.8,
+            "reviews": 342,
+            "stock": 35,
+            "features": [
+              "Réduction de bruit active",
+              "Autonomie 30h",
+              "Bluetooth 5.0",
+              "Pliable",
+              "Microphone intégré"
+            ],
+            "createdAt": "2024-05-10T14:48:00.000Z"
+          },
+          "quantity": 10
+        }
+      ],
+      "totalAmount": 2999.9,
+      "shippingAddress": "",
+      "orderDate": "2025-10-22T19:16:36.363Z",
+      "status": "processing"
+    },
+    {
+      "id": "order_1761160649052",
+      "userId": 1761158069182,
+      "items": [
+        {
+          "product": {
+            "id": "1",
+            "name": "Casque Sans Fil Premium",
+            "description": "Casque audio sans fil avec réduction de bruit active, autonomie de 30 heures et son haute fidélité.",
+            "price": 299.99,
+            "originalPrice": 399.99,
+            "category": "electronics",
+            "image": "/premium-wireless-headphones.png",
+            "images": [
+              "/premium-wireless-headphones-front-view.jpg",
+              "/premium-wireless-headphones-side.png",
+              "/premium-wireless-headphones-folded.png"
+            ],
+            "rating": 4.8,
+            "reviews": 342,
+            "stock": 0,
+            "features": [
+              "Réduction de bruit active",
+              "Autonomie 30h",
+              "Bluetooth 5.0",
+              "Pliable",
+              "Microphone intégré"
+            ],
+            "createdAt": "2024-05-10T14:48:00.000Z"
+          },
+          "quantity": 35
+        }
+      ],
+      "totalAmount": 10499.65,
+      "shippingAddress": "",
+      "orderDate": "2025-10-22T19:17:29.052Z",
+      "status": "processing"
     }
   ]
 }

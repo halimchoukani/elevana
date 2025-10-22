@@ -38,9 +38,7 @@ export function ProductFilters({
       );
 
       if (cat && !selectedCategories.includes(cat.id as unknown as number)) {
-        setSelectedCategories([
-          cat.id as unknown as number,
-        ]);
+        setSelectedCategories([cat.id as unknown as number]);
       } else {
         pathName.replace("category", "");
       }
@@ -104,7 +102,7 @@ export function ProductFilters({
   };
 
   const handleReset = () => {
-    setPriceRange([0, 500]);
+    setPriceRange([0, maxPrice]);
     setSelectedCategories([]);
     setSelectedRatings([]);
     setInStock(false);

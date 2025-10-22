@@ -14,8 +14,8 @@ import {
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import type { Product } from "@/db/models";
-//import { useCart } from "@/lib/cart-context";
 import { toast } from "sonner";
+import { useCart } from "@/lib/CartContext";
 
 interface ProductInfoProps {
   product: Product;
@@ -23,10 +23,10 @@ interface ProductInfoProps {
 
 export function ProductInfo({ product }: ProductInfoProps) {
   const [quantity, setQuantity] = useState(1);
-  //const { addToCart } = useCart();
+  const { addToCart } = useCart();
 
   const handleAddToCart = () => {
-    //addToCart(product, quantity);
+    addToCart(product, quantity);
     toast("Ajouté au panier");
   };
 

@@ -27,11 +27,11 @@ import { useAuth } from "@/lib/AuthContext";
 import { Loading } from "./loading";
 import { useProducts } from "@/lib/ProductsContext";
 import SearchProducts from "./search";
+import { useCart } from "@/lib/CartContext";
 
 export function Header() {
-  //const { totalItems } = useCart();
+  const { totalItems } = useCart();
   const { isAuthenticated, loading } = useAuth();
-  const totalItems = 2;
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { categories } = useProducts();
   return (

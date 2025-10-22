@@ -35,6 +35,7 @@ export interface User {
   phone?: string;
   createdAt?: string;
   password?: string;
+  cart?: CartItem[];
 }
 
 export interface Review {
@@ -44,4 +45,13 @@ export interface Review {
   rating: number;
   comment: string;
   date: string;
+}
+export interface Order {
+  id: number;
+  userId: number;
+  items: CartItem[];
+  totalAmount: number;
+  shippingAddress: string;
+  orderDate: string;
+  status: string;
 }

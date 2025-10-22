@@ -58,7 +58,25 @@ export function useProducts(params?: { id: number }) {
       console.error("Error checking login status:", error);
     }
   };
-
+  const updateProduct = async (product: Product): Promise<boolean> => {
+    try {
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+      const response = await fetch(
+        `http://localhost:5000/products/${product.id}`,
+        {
+          method: "PATCH",
+          body: JSON.stringify(product),
+        }
+      );
+      if (response) {
+        return true;
+      }
+      return false;
+    } catch (error) {
+      console.error("Error checking login status:", error);
+      return false;
+    }
+  };
   const getProductById = async () => {
     try {
       await new Promise((resolve) => setTimeout(resolve, 1000));
@@ -76,5 +94,6 @@ export function useProducts(params?: { id: number }) {
     categories,
     product,
     loading,
+    updateProduct,
   };
 }

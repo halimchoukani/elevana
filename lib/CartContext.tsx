@@ -8,6 +8,7 @@ import {
   type ReactNode,
 } from "react";
 import type { CartItem, Product } from "@/db/models";
+import { useAuth } from "./AuthContext";
 
 interface CartContextType {
   items: CartItem[];
@@ -23,18 +24,20 @@ const CartContext = createContext<CartContextType | undefined>(undefined);
 
 export function CartProvider({ children }: { children: ReactNode }) {
   const [items, setItems] = useState<CartItem[]>([]);
-
-  // Load cart from localStorage on mount
+  const { getCart, updateCart } = useAuth();
   useEffect(() => {
-    const savedCart = localStorage.getItem("cart");
-    if (savedCart) {
-      setItems(JSON.parse(savedCart));
-    }
+    const fetchCart = async () => {
+      const cart = await getCart();
+      if (cart) setItems(cart);
+    };
+    fetchCart();
   }, []);
 
-  // Save cart to localStorage whenever it changes
   useEffect(() => {
-    localStorage.setItem("cart", JSON.stringify(items));
+    const updateUserCart = async () => {
+      await updateCart(items);
+    };
+    updateUserCart();
   }, [items]);
 
   const addToCart = (product: Product, quantity = 1) => {

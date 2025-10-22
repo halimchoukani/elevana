@@ -6,64 +6,10 @@ import { Package, Truck, CheckCircle, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-
-// Mock order data
-/*const orders = [
-  {
-    id: "CMD-12345678",
-    date: "15 janvier 2025",
-    status: "delivered",
-    total: 349.98,
-    items: [
-      {
-        id: 1,
-        name: "Casque Sans Fil Premium",
-        image: "/premium-wireless-headphones.png",
-        price: 299.99,
-        quantity: 1,
-      },
-      {
-        id: 5,
-        name: "Tapis de Yoga Premium",
-        image: "/premium-yoga-mat-rolled.jpg",
-        price: 49.99,
-        quantity: 1,
-      },
-    ],
-  },
-  {
-    id: "CMD-12345677",
-    date: "10 janvier 2025",
-    status: "shipped",
-    total: 249.99,
-    items: [
-      {
-        id: 2,
-        name: "Montre Connectée Sport",
-        image: "/sport-smartwatch.jpg",
-        price: 249.99,
-        quantity: 1,
-      },
-    ],
-  },
-  {
-    id: "CMD-12345676",
-    date: "5 janvier 2025",
-    status: "processing",
-    total: 79.99,
-    items: [
-      {
-        id: 3,
-        name: "Sac à Dos Urbain",
-        image: "/modern-urban-backpack.png",
-        price: 79.99,
-        quantity: 1,
-      },
-    ],
-  },
-];*/
-
-const orders: any = [];
+import useOrder from "@/lib/OrderContext";
+import { useEffect, useState } from "react";
+import { CartItem, Order } from "@/db/models";
+import { Loading } from "./loading";
 
 const statusConfig = {
   processing: {
@@ -84,6 +30,20 @@ const statusConfig = {
 };
 
 export function OrderHistory() {
+  const { getOrders, loading } = useOrder();
+  const [orders, setOrders] = useState<Order[]>([]);
+  useEffect(() => {
+    const fetchOrders = async () => {
+      const myOrders = await getOrders();
+      if (myOrders) {
+        setOrders(myOrders);
+      }
+    };
+    fetchOrders();
+  }, []);
+  if (loading) {
+    return <Loading />;
+  }
   if (orders.length === 0) {
     return (
       <Card>
@@ -125,7 +85,7 @@ export function OrderHistory() {
                 <div>
                   <CardTitle className="mb-2">{order.id}</CardTitle>
                   <p className="text-sm text-muted-foreground">
-                    Commandé le {order.date}
+                    Commandé le {order.orderDate}
                   </p>
                 </div>
                 <Badge className={status.color}>
@@ -137,25 +97,26 @@ export function OrderHistory() {
             <CardContent className="space-y-4">
               {/* Order Items */}
               <div className="space-y-3">
-                {order.items.map((item) => (
-                  <div key={item.id} className="flex gap-4">
+                {order.items.map((item: CartItem) => (
+                  <div key={item.product.id} className="flex gap-4">
                     <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-lg bg-muted">
                       <Image
-                        src={item.image || "/placeholder.svg"}
-                        alt={item.name}
+                        src={item.product.image || "/placeholder.svg"}
+                        alt={item.product.name}
                         fill
                         className="object-cover"
                       />
                     </div>
                     <div className="flex flex-1 flex-col justify-center">
                       <Link
-                        href={`/products/${item.id}`}
+                        href={`/products/${item.product.id}`}
                         className="font-medium hover:text-primary line-clamp-1"
                       >
-                        {item.name}
+                        {item.product.name}
                       </Link>
                       <p className="text-sm text-muted-foreground">
-                        Quantité: {item.quantity} × {item.price.toFixed(2)} €
+                        Quantité: {item.quantity} ×{" "}
+                        {item.product.price.toFixed(2)} €
                       </p>
                     </div>
                   </div>
@@ -167,24 +128,8 @@ export function OrderHistory() {
                 <div>
                   <p className="text-sm text-muted-foreground">Total</p>
                   <p className="text-xl font-bold">
-                    {order.total.toFixed(2)} €
+                    {order.totalAmount.toFixed(2)} €
                   </p>
-                </div>
-                <div className="flex gap-2">
-                  <Button variant="outline" size="sm">
-                    Voir les détails
-                  </Button>
-                  {order.status === "delivered" && (
-                    <Button variant="outline" size="sm">
-                      Commander à nouveau
-                    </Button>
-                  )}
-                  {order.status === "shipped" && (
-                    <Button size="sm">
-                      <Truck className="mr-2 h-4 w-4" />
-                      Suivre le colis
-                    </Button>
-                  )}
                 </div>
               </div>
             </CardContent>

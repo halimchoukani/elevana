@@ -7,7 +7,7 @@ import {
   useEffect,
   type ReactNode,
 } from "react";
-import { User } from "@/db/models";
+import { CartItem, User } from "@/db/models";
 import Cookies from "js-cookie";
 
 interface AuthContextType {
@@ -19,6 +19,8 @@ interface AuthContextType {
   loading: boolean;
   editProfile: (updatedData: Partial<User>) => Promise<boolean>;
   editLoading: boolean;
+  getCart: () => Promise<CartItem[] | undefined>;
+  updateCart: (items: CartItem[]) => void;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -34,7 +36,54 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     };
     init();
   }, []);
+  const updateCart = async (items: CartItem[]) => {
+    try {
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+      const id = Cookies.get("userId");
+      if (id) {
+        const user = await getUserById(id);
+        if (user) {
+          user.cart = items;
+          const update = await editProfile(user);
+          if (update) {
+            console.log("Cart Updated");
+          } else {
+            console.log("Cart Not updated");
+          }
+        }
+      }
 
+      // Optional: if you want to verify user exists
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  const getCart = async (): Promise<CartItem[] | undefined> => {
+    try {
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+      const id = Cookies.get("userId");
+      if (!id) {
+        const savedCart = localStorage.getItem("cart");
+        if (!savedCart) {
+          return [];
+        }
+        return JSON.parse(savedCart);
+      }
+
+      // Optional: if you want to verify user exists
+      const user = await getUserById(id);
+      if (!user) {
+        const savedCart = localStorage.getItem("cart");
+        if (!savedCart) {
+          return [];
+        }
+        return JSON.parse(savedCart);
+      }
+
+      return user.cart;
+    } catch (error) {}
+    return [];
+  };
   const getUserById = async (id: string | number): Promise<User | null> => {
     try {
       const userId = typeof id === "string" ? parseInt(id, 10) : id;
@@ -194,7 +243,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   };
   const logout = () => {
     setUser(null);
-    localStorage.removeItem("user");
+    Cookies.remove("userId");
+    setIsAuthenticated(false);
   };
 
   return (
@@ -207,7 +257,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         logout,
         isAuthenticated,
         editProfile,
+        getCart,
         editLoading,
+        updateCart,
       }}
     >
       {children}
