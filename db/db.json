@@ -20,34 +20,7 @@
       "createdAt": "2025-10-22T18:34:29.182Z",
       "phone": "+21656123197",
       "address": "Heloo",
-      "cart": [
-        {
-          "product": {
-            "id": "2",
-            "name": "Montre Connectée Sport",
-            "description": "Montre intelligente avec suivi d'activité, GPS intégré et résistance à l'eau jusqu'à 50m.",
-            "price": 249.99,
-            "category": "electronics",
-            "image": "/sport-smartwatch.jpg",
-            "images": [
-              "/sport-smartwatch-display.jpg",
-              "/sport-smartwatch-on-wrist.jpg",
-              "/sport-smartwatch-charging.jpg"
-            ],
-            "rating": 4.6,
-            "reviews": 218,
-            "stock": 32,
-            "features": [
-              "GPS intégré",
-              "Étanche 50m",
-              "Suivi cardiaque",
-              "7 jours d'autonomie"
-            ],
-            "createdAt": "2024-06-15T09:30:00.000Z"
-          },
-          "quantity": 3
-        }
-      ]
+      "cart": []
     }
   ],
   "categories": [
