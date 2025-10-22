@@ -51,6 +51,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
             console.log("Cart Not updated");
           }
         }
+      } else {
+        localStorage.setItem("cart", JSON.stringify(items));
       }
 
       // Optional: if you want to verify user exists
@@ -63,6 +65,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       await new Promise((resolve) => setTimeout(resolve, 1000));
       const id = Cookies.get("userId");
       if (!id) {
+        console.log("getting cart .....");
+
         const savedCart = localStorage.getItem("cart");
         if (!savedCart) {
           return [];
@@ -151,16 +155,54 @@ export function AuthProvider({ children }: { children: ReactNode }) {
           method: "GET",
         }
       );
-      const user = await response.json();
-      const userData = user[0] as User | undefined;
+      const userres = await response.json();
+      const userData = userres[0] as User | undefined;
       if (userData && userData.password === password) {
         const { password: _, ...userWithoutPassword } = userData;
-        setUser(userWithoutPassword);
         Cookies.set("userId", String(userData.id), {
           expires: 7,
           secure: process.env.NODE_ENV === "production",
           sameSite: "strict",
         });
+        setUser(userWithoutPassword);
+        //Update user cart :
+        const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+        console.log("Cart : ", cart);
+
+        if (cart.length > 0) {
+          // Convert both to arrays safely
+          const existingCart = Array.isArray(userData.cart)
+            ? userData.cart
+            : [];
+
+          // Start merging
+          const mergedCart = [...existingCart];
+
+          cart.forEach((item: any) => {
+            const existingItemIndex = mergedCart.findIndex(
+              (c) => c.product.id === item.product.id
+            );
+
+            if (existingItemIndex !== -1) {
+              // Product already exists → update quantity
+              mergedCart[existingItemIndex].quantity += item.quantity;
+            } else {
+              // Product not found → add new one
+              mergedCart.push(item);
+            }
+          });
+
+          console.log("Merged cart:", JSON.stringify(mergedCart, null, 2));
+
+          const updatedUser = { ...userData, cart: mergedCart };
+          await editProfile(updatedUser);
+
+          console.log("User updated with new cart:", updatedUser);
+
+          // Clear local cart after syncing
+          localStorage.setItem("cart", JSON.stringify([]));
+        }
+
         return true;
       } else {
         return false;
@@ -219,16 +261,23 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const editProfile = async (updatedData: Partial<User>): Promise<boolean> => {
     setEditLoading(true);
     await new Promise((resolve) => setTimeout(resolve, 1000));
+    const id = Cookies.get("userId");
+    if (!id) return false;
+    const thisUser = await getUserById(id);
+    if (!thisUser) return false;
+    const updatedUser = { ...thisUser, ...updatedData };
+    console.log("updated user : ", updatedUser);
 
-    if (!user) return false;
-    const updatedUser = { ...user, ...updatedData };
     setUser(updatedUser);
 
     try {
-      const response = await fetch(`http://localhost:5000/users/${user.id}`, {
-        method: "PATCH",
-        body: JSON.stringify(updatedUser),
-      });
+      const response = await fetch(
+        `http://localhost:5000/users/${thisUser.id}`,
+        {
+          method: "PATCH",
+          body: JSON.stringify(updatedUser),
+        }
+      );
       if (!response.ok) {
         setEditLoading(false);
         return false;

@@ -9,6 +9,17 @@
       "phone": "+21656123197",
       "address": "",
       "password": "password123",
+      "cart": []
+    },
+    {
+      "id": "1761158069182",
+      "firstName": "Johnd",
+      "lastName": "Doe",
+      "email": "halimchoukani3@gmail.com",
+      "password": "password123",
+      "createdAt": "2025-10-22T18:34:29.182Z",
+      "phone": "+21656123197",
+      "address": "Heloo",
       "cart": [
         {
           "product": {
@@ -34,20 +45,9 @@
             ],
             "createdAt": "2024-06-15T09:30:00.000Z"
           },
-          "quantity": 1
+          "quantity": 3
         }
       ]
-    },
-    {
-      "id": "1761158069182",
-      "firstName": "John",
-      "lastName": "Doe",
-      "email": "halimchoukani3@gmail.com",
-      "password": "password123",
-      "createdAt": "2025-10-22T18:34:29.182Z",
-      "phone": "+21656123197",
-      "address": "Heloo",
-      "cart": []
     }
   ],
   "categories": [

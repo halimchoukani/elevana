@@ -70,7 +70,7 @@ export function ProfileInfo({ user }: ProfileInfoProps) {
   const handleLogout = () => {
     logout();
     toast.success("Déconnexion réussie");
-    router.push("/");
+    router.push("/products");
   };
 
   return (
