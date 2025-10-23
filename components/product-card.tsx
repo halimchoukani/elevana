@@ -75,7 +75,12 @@ export function ProductCard({ product }: ProductCardProps) {
           </div>
         </CardContent>
         <CardFooter className="p-4 pt-0">
-          <Button onClick={handleAddToCart} className="w-full" size="sm">
+          <Button
+            onClick={handleAddToCart}
+            className="w-full"
+            size="sm"
+            disabled={product.stock === 0}
+          >
             <ShoppingCart className="mr-2 h-4 w-4" />
             Ajouter au panier
           </Button>
