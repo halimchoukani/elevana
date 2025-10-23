@@ -135,7 +135,10 @@ export default function HomePage() {
             </div>
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
               {categories.map((category) => (
-                <Link key={category.id} href={`/categories/${category.id}`}>
+                <Link
+                  key={category.id}
+                  href={`/products?category=${category.id}`}
+                >
                   <Card className="group overflow-hidden transition-all hover:shadow-lg">
                     <CardContent className="p-0">
                       <div className="relative aspect-[4/3] overflow-hidden">
