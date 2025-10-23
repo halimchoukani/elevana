@@ -29,7 +29,6 @@ export default function useOrder() {
         item.product.stock -= item.quantity;
         await updateProduct(item.product);
       });
-      console.log("Order confirmed:", order);
       const response = await fetch("http://localhost:5000/orders", {
         method: "POST",
         headers: { "Content-Type": "application/json" },

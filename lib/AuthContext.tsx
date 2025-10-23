@@ -45,11 +45,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         if (user) {
           user.cart = items;
           const update = await editProfile(user);
-          if (update) {
-            console.log("Cart Updated");
-          } else {
-            console.log("Cart Not updated");
-          }
         }
       } else {
         localStorage.setItem("cart", JSON.stringify(items));
@@ -65,8 +60,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       await new Promise((resolve) => setTimeout(resolve, 1000));
       const id = Cookies.get("userId");
       if (!id) {
-        console.log("getting cart .....");
-
         const savedCart = localStorage.getItem("cart");
         if (!savedCart) {
           return [];
@@ -167,8 +160,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         setUser(userWithoutPassword);
         //Update user cart :
         const cart = JSON.parse(localStorage.getItem("cart") || "[]");
-        console.log("Cart : ", cart);
-
         if (cart.length > 0) {
           // Convert both to arrays safely
           const existingCart = Array.isArray(userData.cart)
@@ -192,12 +183,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
             }
           });
 
-          console.log("Merged cart:", JSON.stringify(mergedCart, null, 2));
-
           const updatedUser = { ...userData, cart: mergedCart };
           await editProfile(updatedUser);
-
-          console.log("User updated with new cart:", updatedUser);
 
           // Clear local cart after syncing
           localStorage.setItem("cart", JSON.stringify([]));
@@ -266,7 +253,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     const thisUser = await getUserById(id);
     if (!thisUser) return false;
     const updatedUser = { ...thisUser, ...updatedData };
-    console.log("updated user : ", updatedUser);
 
     setUser(updatedUser);
 

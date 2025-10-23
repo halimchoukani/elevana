@@ -9,6 +9,7 @@ import { ProfileInfo } from "@/components/profile-info";
 import { OrderHistory } from "@/components/order-history";
 import { useAuth } from "@/lib/AuthContext";
 import { Loading } from "@/components/loading";
+import { FavorisProducts } from "@/components/favoris-products";
 
 export default function ProfilePage() {
   const router = useRouter();
@@ -44,15 +45,18 @@ export default function ProfilePage() {
         <section className="py-12">
           <div className="container mx-auto px-4">
             <Tabs defaultValue="orders" className="space-y-8">
-              <TabsList className="grid w-full max-w-md grid-cols-2">
+              <TabsList className="grid w-full max-w-md grid-cols-3">
                 <TabsTrigger value="orders">Mes commandes</TabsTrigger>
+                <TabsTrigger value="favoris">Favoris</TabsTrigger>
                 <TabsTrigger value="profile">Informations</TabsTrigger>
               </TabsList>
 
               <TabsContent value="orders">
                 <OrderHistory />
               </TabsContent>
-
+              <TabsContent value="favoris">
+                <FavorisProducts />
+              </TabsContent>
               <TabsContent value="profile">
                 <ProfileInfo user={user} />
               </TabsContent>

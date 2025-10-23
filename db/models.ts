@@ -36,6 +36,7 @@ export interface User {
   createdAt?: string;
   password?: string;
   cart?: CartItem[];
+  favProducts?: string[];
 }
 
 export interface Review {

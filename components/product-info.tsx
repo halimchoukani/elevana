@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Star,
   Minus,
@@ -10,12 +10,15 @@ import {
   Share2,
   Truck,
   Shield,
+  HeartIcon,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import type { Product } from "@/db/models";
 import { toast } from "sonner";
 import { useCart } from "@/lib/CartContext";
+import { useProducts } from "@/lib/ProductsContext";
+import { useAuth } from "@/lib/AuthContext";
 
 interface ProductInfoProps {
   product: Product;
@@ -23,13 +26,26 @@ interface ProductInfoProps {
 
 export function ProductInfo({ product }: ProductInfoProps) {
   const [quantity, setQuantity] = useState(1);
+  const { user } = useAuth();
   const { addToCart } = useCart();
-
+  const [existInFav, setExistInFav] = useState(false);
+  const { addToFav, existInFavList, removeFromFavList } = useProducts();
   const handleAddToCart = () => {
     addToCart(product, quantity);
     toast("Ajouté au panier");
   };
-
+  const handleAddToFav = async () => {
+    const added = await addToFav(product);
+    added
+      ? toast.success("Ajouté au favouris")
+      : toast.error("Produit deja ajouté");
+  };
+  const handleRemoveFromFavList = async () => {
+    const removed = await removeFromFavList(product);
+    removed
+      ? toast.success("Produit a été supprimer")
+      : toast.error("Produit n'exist pas");
+  };
   const discount = product.originalPrice
     ? Math.round(
         ((product.originalPrice - product.price) / product.originalPrice) * 100
@@ -47,6 +63,13 @@ export function ProductInfo({ product }: ProductInfoProps) {
       setQuantity(quantity - 1);
     }
   };
+  useEffect(() => {
+    const handleExistInFav = async () => {
+      const exist = await existInFavList(product);
+      exist ? setExistInFav(true) : setExistInFav(false);
+    };
+    handleExistInFav();
+  }, [product, user]);
 
   return (
     <div className="space-y-6">
@@ -133,11 +156,36 @@ export function ProductInfo({ product }: ProductInfoProps) {
           <ShoppingCart className="mr-2 h-5 w-5" />
           Ajouter au panier
         </Button>
-        <Button size="lg" variant="outline">
-          <Heart className="h-5 w-5" />
-          <span className="sr-only">Ajouter aux favoris</span>
-        </Button>
-        <Button size="lg" variant="outline">
+        {!existInFav ? (
+          <Button
+            size="lg"
+            variant="outline"
+            onClick={handleAddToFav}
+            className="cursor-pointer"
+          >
+            <Heart className="h-5 w-5" />
+            <span className="sr-only">Ajouter aux favoris</span>
+          </Button>
+        ) : (
+          <Button
+            size="lg"
+            variant="outline"
+            onClick={handleRemoveFromFavList}
+            className="cursor-pointer"
+          >
+            <Heart fill="black" className="h-5 w-5" />
+            <span className="sr-only">Ajouter aux favoris</span>
+          </Button>
+        )}
+
+        <Button
+          size="lg"
+          variant="outline"
+          onClick={() => {
+            //copy link
+            toast.success("Lien a été copié avec success");
+          }}
+        >
           <Share2 className="h-5 w-5" />
           <span className="sr-only">Partager</span>
         </Button>

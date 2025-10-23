@@ -20,7 +20,8 @@
       "createdAt": "2025-10-22T18:34:29.182Z",
       "phone": "+21656123197",
       "address": "Heloo",
-      "cart": []
+      "cart": [],
+      "favProducts": []
     }
   ],
   "categories": [
@@ -65,7 +66,7 @@
       ],
       "rating": 4.8,
       "reviews": 342,
-      "stock": 0,
+      "stock": 10,
       "features": [
         "Réduction de bruit active",
         "Autonomie 30h",
@@ -89,7 +90,7 @@
       ],
       "rating": 4.6,
       "reviews": 218,
-      "stock": 32,
+      "stock": 27,
       "features": [
         "GPS intégré",
         "Étanche 50m",
@@ -570,6 +571,42 @@
       "totalAmount": 10499.65,
       "shippingAddress": "",
       "orderDate": "2025-10-22T19:17:29.052Z",
+      "status": "processing"
+    },
+    {
+      "id": "ORDR_1761171643474",
+      "userId": 1761158069182,
+      "items": [
+        {
+          "product": {
+            "id": "2",
+            "name": "Montre Connectée Sport",
+            "description": "Montre intelligente avec suivi d'activité, GPS intégré et résistance à l'eau jusqu'à 50m.",
+            "price": 249.99,
+            "category": "electronics",
+            "image": "/sport-smartwatch.jpg",
+            "images": [
+              "/sport-smartwatch-display.jpg",
+              "/sport-smartwatch-on-wrist.jpg",
+              "/sport-smartwatch-charging.jpg"
+            ],
+            "rating": 4.6,
+            "reviews": 218,
+            "stock": 27,
+            "features": [
+              "GPS intégré",
+              "Étanche 50m",
+              "Suivi cardiaque",
+              "7 jours d'autonomie"
+            ],
+            "createdAt": "2024-06-15T09:30:00.000Z"
+          },
+          "quantity": 5
+        }
+      ],
+      "totalAmount": 1249.95,
+      "shippingAddress": "",
+      "orderDate": "2025-10-22T22:20:43.474Z",
       "status": "processing"
     }
   ]

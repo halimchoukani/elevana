@@ -1,11 +1,13 @@
 import { Category, Product } from "@/db/models";
 import { useEffect, useState } from "react";
+import { useAuth } from "./AuthContext";
 
 export function useProducts(params?: { id: number }) {
   const [products, setProducts] = useState<Product[]>([]);
   const [product, setProduct] = useState<Product | null>(null);
   const [categories, setCategories] = useState<Category[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
+  const { user, editProfile } = useAuth();
   const [featuredProducts, setFeaturedProducts] = useState<Product[]>([]);
   useEffect(() => {
     const fetchData = async () => {
@@ -43,7 +45,6 @@ export function useProducts(params?: { id: number }) {
       if (products.length === 0) return;
       const data = products.filter((p) => p.originalPrice).slice(0, 4);
       setFeaturedProducts(data);
-      console.log("Featured products fetched:", data);
     } catch (error) {
       console.error("Error checking login status:", error);
     }
@@ -77,6 +78,17 @@ export function useProducts(params?: { id: number }) {
       return false;
     }
   };
+  const getProduct = async (id: number): Promise<Product | null> => {
+    try {
+      const res = await fetch("http://localhost:5000/products/" + id);
+      const data = await res.json();
+      if (data) return data;
+      return null;
+    } catch (error) {
+      console.error("Error checking status:", error);
+      return null;
+    }
+  };
   const getProductById = async () => {
     try {
       await new Promise((resolve) => setTimeout(resolve, 1000));
@@ -87,6 +99,102 @@ export function useProducts(params?: { id: number }) {
       console.error("Error checking status:", error);
     }
   };
+  const addToFav = async (product: Product): Promise<boolean> => {
+    try {
+      if (user) {
+        if (!user?.favProducts) {
+          user.favProducts = [];
+        }
+        const exist = await existInFavList(product);
+        if (!exist) {
+          user.favProducts?.push(product.id as unknown as string);
+
+          const isEdited = await editProfile(user);
+          if (isEdited) {
+            return true;
+          }
+          return false;
+        }
+        return false;
+      }
+      return false;
+    } catch (error) {
+      console.error("Error checking status:", error);
+      return false;
+    }
+  };
+  const existInFavList = async (product: Product): Promise<boolean> => {
+    try {
+      if (user) {
+        if (!user?.favProducts) {
+          return false;
+        }
+        const index = user.favProducts?.indexOf(
+          product.id as unknown as string
+        );
+        if (index !== -1) {
+          return true;
+        }
+        return false;
+      }
+      return false;
+    } catch (error) {
+      console.error("Error checking status:", error);
+      return false;
+    }
+  };
+  const removeFromFavList = async (product: Product): Promise<boolean> => {
+    try {
+      if (user) {
+        if (!user?.favProducts) {
+          user.favProducts = [];
+          return true;
+        }
+        const exist = await existInFavList(product);
+        if (exist) {
+          user.favProducts = user.favProducts.filter(
+            (item) => item !== (product.id as unknown as string)
+          );
+
+          const isEdited = await editProfile(user);
+          if (isEdited) {
+            return true;
+          }
+          return false;
+        }
+        return false;
+      }
+      return false;
+    } catch (error) {
+      console.error("Error checking status:", error);
+      return false;
+    }
+  };
+
+  const getFavItems = async (): Promise<Product[] | null> => {
+    try {
+      setLoading(true);
+      await new Promise((resolve) => setTimeout(resolve, 500));
+      if (user) {
+        if (!user?.favProducts) {
+          return [];
+        }
+        const items: Product[] = [];
+        user.favProducts.map(async (item) => {
+          const prod = await getProduct(item as unknown as number);
+          if (prod) items.push(prod);
+        });
+        setLoading(false);
+        return items;
+      }
+      setLoading(false);
+      return null;
+    } catch (error) {
+      console.error("Error checking status:", error);
+      setLoading(false);
+      return null;
+    }
+  };
 
   return {
     products,
@@ -95,5 +203,9 @@ export function useProducts(params?: { id: number }) {
     product,
     loading,
     updateProduct,
+    addToFav,
+    existInFavList,
+    removeFromFavList,
+    getFavItems,
   };
 }
