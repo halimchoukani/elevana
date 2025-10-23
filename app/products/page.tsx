@@ -14,7 +14,7 @@ export default function ProductsPage() {
   const [filteredProducts, setFilteredProducts] = useState(products);
   useEffect(() => {
     setFilteredProducts(products || []);
-  }, [products]);
+  }, []);
   const handleSort = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const sortedProducts = [...filteredProducts];
     switch (event.target.value) {
@@ -39,6 +39,7 @@ export default function ProductsPage() {
   if (productsLoading) {
     return <Loading />;
   }
+
   return (
     <div className="flex min-h-screen flex-col">
       <Header />

@@ -45,7 +45,7 @@ export function ProductFilters({
     } else {
       setSelectedCategories([]);
     }
-  }, [category, categories]);
+  }, [category]);
   useEffect(() => {
     let filtered: Product[] = products;
 

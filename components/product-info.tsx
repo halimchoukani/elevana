@@ -26,7 +26,7 @@ interface ProductInfoProps {
 
 export function ProductInfo({ product }: ProductInfoProps) {
   const [quantity, setQuantity] = useState(1);
-  const { user } = useAuth();
+  const { user, isAuthenticated } = useAuth();
   const { addToCart } = useCart();
   const [existInFav, setExistInFav] = useState(false);
   const { addToFav, existInFavList, removeFromFavList } = useProducts();
@@ -156,27 +156,28 @@ export function ProductInfo({ product }: ProductInfoProps) {
           <ShoppingCart className="mr-2 h-5 w-5" />
           Ajouter au panier
         </Button>
-        {!existInFav ? (
-          <Button
-            size="lg"
-            variant="outline"
-            onClick={handleAddToFav}
-            className="cursor-pointer"
-          >
-            <Heart className="h-5 w-5" />
-            <span className="sr-only">Ajouter aux favoris</span>
-          </Button>
-        ) : (
-          <Button
-            size="lg"
-            variant="outline"
-            onClick={handleRemoveFromFavList}
-            className="cursor-pointer"
-          >
-            <Heart fill="black" className="h-5 w-5" />
-            <span className="sr-only">Ajouter aux favoris</span>
-          </Button>
-        )}
+        {isAuthenticated &&
+          (!existInFav ? (
+            <Button
+              size="lg"
+              variant="outline"
+              onClick={handleAddToFav}
+              className="cursor-pointer"
+            >
+              <Heart className="h-5 w-5" />
+              <span className="sr-only">Ajouter aux favoris</span>
+            </Button>
+          ) : (
+            <Button
+              size="lg"
+              variant="outline"
+              onClick={handleRemoveFromFavList}
+              className="cursor-pointer"
+            >
+              <Heart fill="black" className="h-5 w-5" />
+              <span className="sr-only">Ajouter aux favoris</span>
+            </Button>
+          ))}
 
         <Button
           size="lg"
