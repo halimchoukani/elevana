@@ -183,7 +183,7 @@ export function ProductInfo({ product }: ProductInfoProps) {
           size="lg"
           variant="outline"
           onClick={() => {
-            //copy link
+            window.navigator.clipboard.writeText(window.location.href);
             toast.success("Lien a été copié avec success");
           }}
         >
