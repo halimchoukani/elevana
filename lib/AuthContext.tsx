@@ -186,7 +186,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
           // Clear local cart after syncing
           localStorage.setItem("cart", JSON.stringify([]));
         }
-
+        setIsAuthenticated(true);
         return true;
       } else {
         return false;
