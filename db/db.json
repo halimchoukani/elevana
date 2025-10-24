@@ -7,9 +7,38 @@
       "email": "halimchoukani@gmail.com",
       "createdAt": "2025-10-18T08:37:27.335Z",
       "phone": "+21656123197",
-      "address": "",
+      "address": "jdapojaodao",
       "password": "password123",
-      "cart": []
+      "cart": [
+        {
+          "product": {
+            "id": "8",
+            "name": "Enceinte Bluetooth Portable",
+            "description": "Enceinte sans fil étanche avec son 360°, autonomie 24h et résistance aux chocs.",
+            "price": 89.99,
+            "originalPrice": 119.99,
+            "category": "electronics",
+            "image": "/placeholder.svg?height=400&width=400",
+            "images": [
+              "/placeholder.svg?height=600&width=600",
+              "/placeholder.svg?height=600&width=600",
+              "/placeholder.svg?height=600&width=600"
+            ],
+            "rating": 4.8,
+            "reviews": 312,
+            "stock": 87,
+            "features": [
+              "Son 360°",
+              "Étanche IPX7",
+              "24h d'autonomie",
+              "Résistant aux chocs"
+            ],
+            "createdAt": "2024-11-12T09:20:00.000Z"
+          },
+          "quantity": 1
+        }
+      ],
+      "favProducts": []
     },
     {
       "id": "1761158069182",
@@ -114,7 +143,7 @@
       ],
       "rating": 4.7,
       "reviews": 156,
-      "stock": 68,
+      "stock": 67,
       "features": [
         "Compartiment laptop 15''",
         "Port USB",
@@ -198,6 +227,7 @@
       "name": "Baskets Running Pro",
       "description": "Chaussures de course légères avec amorti réactif et semelle respirante pour performances optimales.",
       "price": 129.99,
+      "originalPrice": 200,
       "category": "sports",
       "image": "/professional-running-shoes.png",
       "images": [
@@ -607,6 +637,43 @@
       "totalAmount": 1249.95,
       "shippingAddress": "",
       "orderDate": "2025-10-22T22:20:43.474Z",
+      "status": "processing"
+    },
+    {
+      "id": "ORDR_1761298176364",
+      "userId": 1760776647335,
+      "items": [
+        {
+          "product": {
+            "id": "3",
+            "name": "Sac à Dos Urbain",
+            "description": "Sac à dos élégant et fonctionnel avec compartiment pour ordinateur portable 15 pouces et port USB.",
+            "price": 79.99,
+            "originalPrice": 99.99,
+            "category": "fashion",
+            "image": "/modern-urban-backpack.png",
+            "images": [
+              "/urban-backpack-front.jpg",
+              "/urban-backpack-open-compartments.jpg",
+              "/urban-backpack-worn.jpg"
+            ],
+            "rating": 4.7,
+            "reviews": 156,
+            "stock": 67,
+            "features": [
+              "Compartiment laptop 15''",
+              "Port USB",
+              "Imperméable",
+              "Bretelles ergonomiques"
+            ],
+            "createdAt": "2024-07-20T11:15:00.000Z"
+          },
+          "quantity": 1
+        }
+      ],
+      "totalAmount": 79.99,
+      "shippingAddress": "",
+      "orderDate": "2025-10-24T09:29:36.364Z",
       "status": "processing"
     }
   ]

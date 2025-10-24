@@ -43,7 +43,10 @@ export function useProducts(params?: { id: number }) {
     try {
       await new Promise((resolve) => setTimeout(resolve, 1000));
       if (products.length === 0) return;
-      const data = products.filter((p) => p.originalPrice).slice(0, 4);
+
+      const data = products
+        .filter((p) => p.originalPrice && p.stock > 0)
+        .slice(0, 4);
       setFeaturedProducts(data);
     } catch (error) {
       console.error("Error checking login status:", error);

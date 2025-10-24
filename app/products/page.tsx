@@ -42,8 +42,6 @@ export default function ProductsPage() {
 
   return (
     <div className="flex min-h-screen flex-col">
-      <Header />
-
       <main className="flex-1">
         {/* Page Header */}
         <section className="border-b bg-muted/50 py-12">

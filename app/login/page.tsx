@@ -38,6 +38,7 @@ export default function LoginPage() {
       const success = await login(formData.email, formData.password);
       if (success) {
         toast.success("Connexion réussie");
+
         router.push("/");
       } else {
         toast.error("Erreur de connexion");

@@ -40,8 +40,6 @@ export default function CheckoutPage() {
 
   return (
     <div className="flex min-h-screen flex-col">
-      <Header />
-
       <main className="flex-1 bg-muted/50">
         {/* Page Header */}
         <section className="border-b bg-background py-8">

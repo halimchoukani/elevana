@@ -137,10 +137,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     }
   };
   const login = async (email: string, password: string): Promise<boolean> => {
-    // Simulate API call
     await new Promise((resolve) => setTimeout(resolve, 1000));
-
-    // Check if user exists in localStorage
     try {
       const response = await fetch(
         `http://localhost:5000/users?email=${email}`,

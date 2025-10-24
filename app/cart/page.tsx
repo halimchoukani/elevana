@@ -23,7 +23,6 @@ export default function CartPage() {
   if (items.length === 0) {
     return (
       <div className="flex min-h-screen flex-col">
-        <Header />
         <main className="flex-1">
           <div className="container mx-auto px-4 py-16">
             <div className="mx-auto max-w-md text-center">
@@ -53,8 +52,6 @@ export default function CartPage() {
 
   return (
     <div className="flex min-h-screen flex-col">
-      <Header />
-
       <main className="flex-1">
         {/* Page Header */}
         <section className="border-b bg-muted/50 py-8">
