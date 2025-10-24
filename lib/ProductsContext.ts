@@ -1,4 +1,4 @@
-import { Category, Product } from "@/db/models";
+import { Category, Product, Review } from "@/db/models";
 import { useEffect, useState } from "react";
 import { useAuth } from "./AuthContext";
 
@@ -9,6 +9,7 @@ export function useProducts(params?: { id: number }) {
   const [loading, setLoading] = useState<boolean>(true);
   const { user, editProfile } = useAuth();
   const [featuredProducts, setFeaturedProducts] = useState<Product[]>([]);
+  const [reviews, setReviews] = useState<Review[]>([]);
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
@@ -27,6 +28,7 @@ export function useProducts(params?: { id: number }) {
   useEffect(() => {
     if (params?.id) {
       getProductById();
+      getReviews();
     }
   }, [params?.id]);
   const getProducts = async () => {
@@ -173,7 +175,6 @@ export function useProducts(params?: { id: number }) {
       return false;
     }
   };
-
   const getFavItems = async (): Promise<Product[] | null> => {
     try {
       setLoading(true);
@@ -198,6 +199,88 @@ export function useProducts(params?: { id: number }) {
       return null;
     }
   };
+  const getReviews = async () => {
+    try {
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+      const res = await fetch("http://localhost:5000/reviews");
+      const data = await res.json();
+      const reviewsData = data
+        .filter((r: Review) => String(r.productId) === String(params?.id))
+        .sort(
+          (a: Review, b: Review) =>
+            new Date(b.date).getTime() - new Date(a.date).getTime()
+        );
+      setReviews(reviewsData);
+    } catch (error) {
+      console.error("Error checking login status:", error);
+    }
+  };
+  const updateRating = async () => {
+    try {
+      const res = await fetch("http://localhost:5000/reviews");
+      if (!res.ok) throw new Error("Failed to fetch reviews");
+
+      const data = await res.json();
+
+      const reviewsData: Review[] = data
+        .filter((r: Review) => String(r.productId) === String(params?.id))
+        .sort(
+          (a: Review, b: Review) =>
+            new Date(b.date).getTime() - new Date(a.date).getTime()
+        );
+
+      if (reviewsData.length === 0) {
+        console.log("No reviews found for this product");
+        return;
+      }
+
+      const totalRating = reviewsData.reduce((sum, r) => sum + r.rating, 0);
+      const newRating = totalRating / reviewsData.length;
+      const productData = await fetch(
+        `http://localhost:5000/products/${params?.id}`,
+        {
+          method: "PATCH",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            rating: newRating.toFixed(2),
+            reviews: reviewsData.length,
+          }),
+        }
+      );
+      const newProduct: Product = await productData.json();
+    } catch (error) {
+      console.error("Error updating rating:", error);
+    }
+  };
+  const addReview = async (
+    rating: number,
+    comment: string
+  ): Promise<boolean> => {
+    try {
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+      const review: Review = {
+        id: `RV_${new Date().getTime()}`,
+        productId: String(params?.id),
+        userName: user?.firstName + " " + user?.lastName,
+        rating: rating,
+        comment: comment,
+        date: new Date(),
+      };
+      const response = await fetch(`http://localhost:5000/reviews`, {
+        method: "POST",
+        body: JSON.stringify(review),
+      });
+      if (response) {
+        setReviews([review, ...reviews]);
+        await updateRating();
+        return true;
+      }
+      return false;
+    } catch (error) {
+      console.error("Error checking status:", error);
+      return false;
+    }
+  };
 
   return {
     products,
@@ -210,5 +293,7 @@ export function useProducts(params?: { id: number }) {
     existInFavList,
     removeFromFavList,
     getFavItems,
+    reviews,
+    addReview,
   };
 }

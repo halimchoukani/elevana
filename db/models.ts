@@ -40,12 +40,12 @@ export interface User {
 }
 
 export interface Review {
-  id: number;
-  productId: number;
+  id: string;
+  productId: string;
   userName: string;
   rating: number;
   comment: string;
-  date: string;
+  date: Date;
 }
 export interface Order {
   id: number;

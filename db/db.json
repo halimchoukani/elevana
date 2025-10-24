@@ -93,8 +93,8 @@
         "/premium-wireless-headphones-side.png",
         "/premium-wireless-headphones-folded.png"
       ],
-      "rating": 4.8,
-      "reviews": 342,
+      "rating": "1.00",
+      "reviews": 1,
       "stock": 0,
       "features": [
         "Réduction de bruit active",
@@ -259,8 +259,8 @@
         "/placeholder.svg?height=600&width=600",
         "/placeholder.svg?height=600&width=600"
       ],
-      "rating": 4.8,
-      "reviews": 312,
+      "rating": "3.64",
+      "reviews": 14,
       "stock": 87,
       "features": [
         "Son 360°",
@@ -675,6 +675,128 @@
       "shippingAddress": "",
       "orderDate": "2025-10-24T09:29:36.364Z",
       "status": "processing"
+    }
+  ],
+  "reviews": [
+    {
+      "id": "RV_1761341690127",
+      "productId": "8",
+      "userName": "Johnd Doe",
+      "rating": 4,
+      "comment": "good one",
+      "date": "2025-10-24T21:34:50.127Z"
+    },
+    {
+      "id": "RV_1761341894666",
+      "productId": "8",
+      "userName": "Johnd Doe",
+      "rating": 4,
+      "comment": "good",
+      "date": "2025-10-24T21:38:14.666Z"
+    },
+    {
+      "id": "RV_1761341903150",
+      "productId": "8",
+      "userName": "Johnd Doe",
+      "rating": 3,
+      "comment": "good",
+      "date": "2025-10-24T21:38:23.150Z"
+    },
+    {
+      "id": "RV_1761341945740",
+      "productId": "8",
+      "userName": "Johnd Doe",
+      "rating": 2,
+      "comment": "good",
+      "date": "2025-10-24T21:39:05.740Z"
+    },
+    {
+      "id": "RV_1761342013629",
+      "productId": "8",
+      "userName": "Johnd Doe",
+      "rating": 1,
+      "comment": "good",
+      "date": "2025-10-24T21:40:13.629Z"
+    },
+    {
+      "id": "RV_1761342058415",
+      "productId": "8",
+      "userName": "Johnd Doe",
+      "rating": 5,
+      "comment": "good",
+      "date": "2025-10-24T21:40:58.415Z"
+    },
+    {
+      "id": "RV_1761342157532",
+      "productId": "8",
+      "userName": "Johnd Doe",
+      "rating": 5,
+      "comment": "dzzdz",
+      "date": "2025-10-24T21:42:37.532Z"
+    },
+    {
+      "id": "RV_1761342264982",
+      "productId": "8",
+      "userName": "Johnd Doe",
+      "rating": 5,
+      "comment": "dzdz",
+      "date": "2025-10-24T21:44:24.982Z"
+    },
+    {
+      "id": "RV_1761342343703",
+      "productId": "8",
+      "userName": "Johnd Doe",
+      "rating": 5,
+      "comment": "dzdzss",
+      "date": "2025-10-24T21:45:43.703Z"
+    },
+    {
+      "id": "RV_1761342350114",
+      "productId": "8",
+      "userName": "Johnd Doe",
+      "rating": 5,
+      "comment": "sssdzdzss",
+      "date": "2025-10-24T21:45:50.114Z"
+    },
+    {
+      "id": "RV_1761342394698",
+      "productId": "8",
+      "userName": "Johnd Doe",
+      "rating": 1,
+      "comment": "sasa",
+      "date": "2025-10-24T21:46:34.698Z"
+    },
+    {
+      "id": "RV_1761342427762",
+      "productId": "8",
+      "userName": "Johnd Doe",
+      "rating": 1,
+      "comment": "dzdz",
+      "date": "2025-10-24T21:47:07.762Z"
+    },
+    {
+      "id": "RV_1761342550284",
+      "productId": "8",
+      "userName": "Johnd Doe",
+      "rating": 5,
+      "comment": "dddd",
+      "date": "2025-10-24T21:49:10.284Z"
+    },
+    {
+      "id": "RV_1761342591964",
+      "productId": "8",
+      "userName": "Johnd Doe",
+      "rating": 5,
+      "comment": "dzddzdz",
+      "date": "2025-10-24T21:49:51.964Z"
+    },
+    {
+      "id": "RV_1761342937072",
+      "productId": "1",
+      "userName": "Johnd Doe",
+      "rating": 1,
+      "comment": "test",
+      "date": "2025-10-24T21:55:37.072Z"
     }
   ]
 }
