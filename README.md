@@ -81,8 +81,60 @@ Example minimal `db.json` (expand fields as needed):
       "date": "2024-01-02T00:00:00.000Z"
     }
   ],
-  "orders": [],
-  "users": []
+  "orders": [
+    {
+      "id": "order_1761156821865",
+      "userId": 1760776647335,
+      "items": [
+        {
+          "product": {
+            "id": "1",
+            "name": "Casque Sans Fil Premium",
+            "description": "Casque audio sans fil avec réduction de bruit active, autonomie de 30 heures et son haute fidélité.",
+            "price": 299.99,
+            "originalPrice": 399.99,
+            "category": "electronics",
+            "image": "/premium-wireless-headphones.png",
+            "images": [
+              "/premium-wireless-headphones-front-view.jpg",
+              "/premium-wireless-headphones-side.png",
+              "/premium-wireless-headphones-folded.png"
+            ],
+            "rating": 4.8,
+            "reviews": 342,
+            "stock": 45,
+            "features": [
+              "Réduction de bruit active",
+              "Autonomie 30h",
+              "Bluetooth 5.0",
+              "Pliable",
+              "Microphone intégré"
+            ],
+            "createdAt": "2024-05-10T14:48:00.000Z"
+          },
+          "quantity": 1
+        }
+      ],
+      "totalAmount": 299.99,
+      "shippingAddress": "",
+      "orderDate": "2025-10-22T18:13:41.865Z",
+      "status": "processing"
+    }
+  ],
+  "users": [
+    {
+      "id": "1761158069182",
+      "firstName": "Johnd",
+      "lastName": "Doe",
+      "email": "johndoe@gmail.com",
+      "password": "*********",
+      "createdAt": "2025-10-22T18:34:29.182Z",
+      "phone": "+21621234567",
+      "address": "Heloo",
+      "cart": [],
+      "favProducts": []
+    }
+  ]
 }
 ```
 
@@ -112,7 +164,7 @@ Note: The frontend code expects the API at http://localhost:5000 by default. If 
 Start the development server:
 
 ```bash
-npm run dev
+npm run dev (using the script in the package.json file you can ran the server and the application at the same time with that command)
 # or
 pnpm dev
 # or
@@ -132,22 +184,6 @@ npm run start
 
 (Adjust to pnpm/yarn if you use those.)
 
----
-
-## Environment
-
-You can set environment variables in `.env.local` at project root.
-
-Common variables used by the app (create if needed):
-
-```
-NEXT_PUBLIC_API_URL=http://localhost:5000
-NEXT_PUBLIC_APP_NAME=Elevana
-```
-
-If NEXT_PUBLIC_API_URL is not set the code falls back to the hardcoded http://localhost:5000 used in the API hooks — check lib/* for fetch URLs.
-
----
 
 ## Project structure (important files)
 
@@ -182,53 +218,3 @@ If NEXT_PUBLIC_API_URL is not set the code falls back to the hardcoded http://lo
 Note: Some flows depend on a userId cookie. If that cookie is missing, test flows may fail — see lib/AuthContext.ts.
 
 ---
-
-## Tests & linting
-
-Check package.json for scripts. Common ones:
-
-```bash
-npm run lint        # runs eslint if configured
-npm run test        # runs tests if configured
-npm run format      # runs prettier if configured
-```
-
-If tests are not present, create tests under __tests__ or following your preferred structure.
-
----
-
-## Troubleshooting
-
-- Empty UI / 404s: Ensure json-server is running on port 5000 and db.json contains expected resources (products, categories, reviews).
-- CORS: During development the Next dev server fetches the API directly (localhost). If you host the API on another origin, enable CORS or proxy requests.
-- Missing cookies: Some flows expect a cookie named `userId`. Use the auth UI or set a cookie for testing.
-- Unexpected fetch URL: Search for hardcoded "http://localhost:5000" in lib/ to update the endpoint.
-
-Linux tips:
-- To run both servers (json-server and Next) in parallel in a single terminal you can use tmux, two terminals, or a tool like concurrently:
-  npm i -D concurrently
-  npx concurrently "npx json-server --watch db.json --port 5000" "npm run dev"
-
----
-
-## Deploy
-
-This demo is suitable for deployment on Vercel. For production you should:
-- Replace json-server with a real backend or hosted mock API
-- Configure env vars (NEXT_PUBLIC_API_URL)
-- Remove any test/seed data and secure endpoints
-
----
-
-## Contributing
-
-- Use the existing hooks in lib/ for data operations to keep behavior consistent.
-- Add UI primitives under components/ui for shared controls.
-- If you add API endpoints, update db/models.ts types.
-
----
-
-If you want, I can:
-- Generate a ready-to-use example db.json with richer sample data.
-- Add an npm script to run json-server and Next concurrently.
-- Create a minimal `.env.local.example` file.
