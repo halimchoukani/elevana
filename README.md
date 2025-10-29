@@ -1,5 +1,3 @@
-...existing code...
-
 # Elevana — Next.js E‑commerce Demo
 
 A lightweight Next.js e‑commerce demo app (TypeScript + Tailwind). This README replaces the default create-next-app content and documents how to run the project locally, start the mock API used by the frontend, and where to find important parts of the codebase.
