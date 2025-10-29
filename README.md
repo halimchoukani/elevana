@@ -155,7 +155,7 @@ Available endpoints after starting:
 - GET/POST /orders
 - GET/POST /users
 
-Note: The frontend code expects the API at http://localhost:5000 by default. If you change the API URL, update the fetch calls or set NEXT_PUBLIC_API_URL (see Environment).
+Note: The frontend code expects the API at http://localhost:5000 by default.
 
 ---
 
