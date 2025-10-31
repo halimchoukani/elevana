@@ -62,9 +62,9 @@ export function Header() {
                   <NavigationMenuTrigger>Categories</NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <ul className="grid w-[300px] gap-4">
-                      {categories.map((categorie) => {
+                      {categories.map((categorie, index) => {
                         return (
-                          <li>
+                          <li key={index}>
                             <NavigationMenuLink asChild>
                               <Link href={`/products?category=${categorie.id}`}>
                                 <div className="font-medium flex justify-start items-center gap-4">

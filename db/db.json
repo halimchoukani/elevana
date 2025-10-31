@@ -9,35 +9,7 @@
       "phone": "+21656123197",
       "address": "jdapojaodao",
       "password": "password123",
-      "cart": [
-        {
-          "product": {
-            "id": "8",
-            "name": "Enceinte Bluetooth Portable",
-            "description": "Enceinte sans fil étanche avec son 360°, autonomie 24h et résistance aux chocs.",
-            "price": 89.99,
-            "originalPrice": 119.99,
-            "category": "electronics",
-            "image": "/placeholder.svg?height=400&width=400",
-            "images": [
-              "/placeholder.svg?height=600&width=600",
-              "/placeholder.svg?height=600&width=600",
-              "/placeholder.svg?height=600&width=600"
-            ],
-            "rating": 4.8,
-            "reviews": 312,
-            "stock": 87,
-            "features": [
-              "Son 360°",
-              "Étanche IPX7",
-              "24h d'autonomie",
-              "Résistant aux chocs"
-            ],
-            "createdAt": "2024-11-12T09:20:00.000Z"
-          },
-          "quantity": 1
-        }
-      ],
+      "cart": [],
       "favProducts": []
     },
     {
@@ -50,32 +22,34 @@
       "phone": "+21656123197",
       "address": "Heloo",
       "cart": [],
-      "favProducts": []
+      "favProducts": [
+        "15"
+      ]
     }
   ],
   "categories": [
     {
       "id": "electronics",
       "name": "Électronique",
-      "image": "/modern-electronics.png",
+      "image": "https://cdncn.goodao.net/kfpcba/CONSUMER-ELECTRONICS.jpeg",
       "productCount": 24
     },
     {
       "id": "fashion",
       "name": "Mode",
-      "image": "/fashion-clothing-on-hangers.jpg",
+      "image": "https://cdn-icons-png.freepik.com/512/1051/1051060.png",
       "productCount": 48
     },
     {
       "id": "home",
       "name": "Maison",
-      "image": "/modern-home-decor.png",
+      "image": "https://dropinblog.net/cdn-cgi/image/fit=scale-down,width=1140/34246798/files/featured/Home_Interior__Budget_Friendly_Once_for_Every_Homeowner.png",
       "productCount": 36
     },
     {
       "id": "sports",
       "name": "Sports",
-      "image": "/assorted-sports-gear.png",
+      "image": "https://www.britsoc.co.uk/media/23986/adobestock_4437974.jpg",
       "productCount": 32
     }
   ],
@@ -87,14 +61,14 @@
       "price": 299.99,
       "originalPrice": 399.99,
       "category": "electronics",
-      "image": "/premium-wireless-headphones.png",
+      "image": "https://s.alicdn.com/@sc04/kf/Hbe9aee4491da408ea3158504c26f1262J.jpg",
       "images": [
-        "/premium-wireless-headphones-front-view.jpg",
-        "/premium-wireless-headphones-side.png",
-        "/premium-wireless-headphones-folded.png"
+        "https://s.alicdn.com/@sc04/kf/Hbe9aee4491da408ea3158504c26f1262J.jpg",
+        "https://s.alicdn.com/@sc04/kf/H3136d287744142a384112f148ed7ac3eS.jpg",
+        "https://s.alicdn.com/@sc04/kf/H038d82b0fc3f474e8523f588bed06512t.jpg"
       ],
-      "rating": "1.00",
-      "reviews": 1,
+      "rating": 0,
+      "reviews": 0,
       "stock": 0,
       "features": [
         "Réduction de bruit active",
@@ -111,15 +85,14 @@
       "description": "Montre intelligente avec suivi d'activité, GPS intégré et résistance à l'eau jusqu'à 50m.",
       "price": 249.99,
       "category": "electronics",
-      "image": "/sport-smartwatch.jpg",
+      "image": "https://mk-media.mytek.tn/media/catalog/product/cache/8be3f98b14227a82112b46963246dfe1/m/o/montre_connect_e_qcy_active_gx_-_noir_2_x.jpg",
       "images": [
-        "/sport-smartwatch-display.jpg",
-        "/sport-smartwatch-on-wrist.jpg",
-        "/sport-smartwatch-charging.jpg"
+        "https://mk-media.mytek.tn/media/catalog/product/cache/8be3f98b14227a82112b46963246dfe1/m/o/montre_connect_e_qcy_active_gx_-_noir_2_x.jpg",
+        "https://mk-media.mytek.tn/media/catalog/product/cache/8be3f98b14227a82112b46963246dfe1/m/o/montre_connect_e_qcy_active_gx_-_noirx.jpg"
       ],
       "rating": 4.6,
       "reviews": 218,
-      "stock": 27,
+      "stock": 26,
       "features": [
         "GPS intégré",
         "Étanche 50m",
@@ -135,14 +108,14 @@
       "price": 79.99,
       "originalPrice": 99.99,
       "category": "fashion",
-      "image": "/modern-urban-backpack.png",
+      "image": "https://s.alicdn.com/@sc04/kf/A73154578596840489b96dcbaa19d47a5d.jpg",
       "images": [
-        "/urban-backpack-front.jpg",
-        "/urban-backpack-open-compartments.jpg",
-        "/urban-backpack-worn.jpg"
+        "https://s.alicdn.com/@sc04/kf/A73154578596840489b96dcbaa19d47a5d.jpg",
+        "https://s.alicdn.com/@sc04/kf/Ae1190b1d714f47b9bfa23747bdce18acz.jpg",
+        "https://s.alicdn.com/@sc04/kf/A79a7b847cfd84f7ab3d90a48763267d8L.jpg"
       ],
-      "rating": 4.7,
-      "reviews": 156,
+      "rating": 0,
+      "reviews": 0,
       "stock": 67,
       "features": [
         "Compartiment laptop 15''",
@@ -158,14 +131,14 @@
       "description": "Lampe de bureau LED avec contrôle tactile, température de couleur ajustable et port de charge USB.",
       "price": 59.99,
       "category": "home",
-      "image": "/smart-led-desk-lamp.jpg",
+      "image": "https://s.alicdn.com/@sc04/kf/H3c7d75ff7a9043e7a792d78ce5e8942eV.jpg",
       "images": [
-        "/led-desk-lamp-on.jpg",
-        "/led-desk-lamp-different-colors.jpg",
-        "/led-desk-lamp-on-desk.jpg"
+        "https://s.alicdn.com/@sc04/kf/H3c7d75ff7a9043e7a792d78ce5e8942eV.jpg",
+        "https://s.alicdn.com/@sc04/kf/H734892c920e14cc8b5427101571366a4y.jpg",
+        "https://s.alicdn.com/@sc04/kf/H967379a09b374591b0f4228a3ad93ddaK.jpg"
       ],
-      "rating": 4.5,
-      "reviews": 89,
+      "rating": 0,
+      "reviews": 0,
       "stock": 124,
       "features": [
         "Contrôle tactile",
@@ -181,14 +154,14 @@
       "description": "Tapis de yoga antidérapant en matériau écologique, épaisseur 6mm pour un confort optimal.",
       "price": 49.99,
       "category": "sports",
-      "image": "/premium-yoga-mat-rolled.jpg",
+      "image": "https://s.alicdn.com/@sc04/kf/Hb000f421488f4d958cb322ab1b41f335d.jpg",
       "images": [
-        "/yoga-mat-unrolled.jpg",
-        "/yoga-mat-in-use.png",
-        "/yoga-mat-texture-close-up.jpg"
+        "https://s.alicdn.com/@sc04/kf/Hb000f421488f4d958cb322ab1b41f335d.jpg",
+        "https://s.alicdn.com/@sc04/kf/H1cc5f76511ba4ff78f6c8a9c32649cfeT.jpg",
+        "https://s.alicdn.com/@sc04/kf/Hc4d10e1670f54a9ca5ab8556f013c475I.png"
       ],
-      "rating": 4.9,
-      "reviews": 267,
+      "rating": "5.00",
+      "reviews": 1,
       "stock": 91,
       "features": [
         "Antidérapant",
@@ -205,14 +178,15 @@
       "price": 189.99,
       "originalPrice": 249.99,
       "category": "home",
-      "image": "/automatic-coffee-maker.jpg",
+      "image": "https://s.alicdn.com/@sc04/kf/H92be2bd4ce2f4815a40235f6fcc803cfr.jpg",
       "images": [
-        "/placeholder.svg?height=600&width=600",
-        "/placeholder.svg?height=600&width=600",
-        "/placeholder.svg?height=600&width=600"
+        "https://s.alicdn.com/@sc04/kf/H92be2bd4ce2f4815a40235f6fcc803cfr.jpg",
+        "https://s.alicdn.com/@sc04/kf/H9024b033eafe44debbda94b1717e4e45o.jpg",
+        "https://s.alicdn.com/@sc04/kf/Hf5918192df4c4c968bfd281ccd305a4dE.jpg",
+        "https://s.alicdn.com/@sc04/kf/Hf11cf83c6e684db8b305d9daf0707d0fM.jpg"
       ],
-      "rating": 4.6,
-      "reviews": 178,
+      "rating": 0,
+      "reviews": 0,
       "stock": 23,
       "features": [
         "Broyeur intégré",
@@ -229,14 +203,14 @@
       "price": 129.99,
       "originalPrice": 200,
       "category": "sports",
-      "image": "/professional-running-shoes.png",
+      "image": "https://s.alicdn.com/@sc04/kf/H3a5f6b05911743c0a4bad62ba7a92464G.jpg",
       "images": [
-        "/running-shoes-side-view.png",
-        "/running-shoes-sole-detail.jpg",
-        "/placeholder.svg?height=600&width=600"
+        "https://s.alicdn.com/@sc04/kf/H3a5f6b05911743c0a4bad62ba7a92464G.jpg",
+        "https://s.alicdn.com/@sc04/kf/H10d3b5a967c6460d915366c7f5fd77245.jpg",
+        "https://s.alicdn.com/@sc04/kf/Hd3ac9cbe783e4172ae4f2a44f2942ac1q.jpg"
       ],
-      "rating": 4.7,
-      "reviews": 423,
+      "rating": "5.00",
+      "reviews": 1,
       "stock": 156,
       "features": [
         "Amorti réactif",
@@ -253,14 +227,15 @@
       "price": 89.99,
       "originalPrice": 119.99,
       "category": "electronics",
-      "image": "/placeholder.svg?height=400&width=400",
+      "image": "https://s.alicdn.com/@sc04/kf/H1a3fb8e997e043a4bec844b764463811K.jpg",
       "images": [
-        "/placeholder.svg?height=600&width=600",
-        "/placeholder.svg?height=600&width=600",
-        "/placeholder.svg?height=600&width=600"
+        "https://s.alicdn.com/@sc04/kf/H1a3fb8e997e043a4bec844b764463811K.jpg",
+        "https://s.alicdn.com/@sc04/kf/H4485b49fd7b946c592991b8e4c6f641fg.jpg",
+        "https://s.alicdn.com/@sc04/kf/Hc806778a9c034feb98939ca0cf3cb840a.jpg",
+        "https://s.alicdn.com/@sc04/kf/H2166bb5d549447bab68afd00f968d542z.jpg"
       ],
-      "rating": "3.64",
-      "reviews": 14,
+      "rating": 0,
+      "reviews": 0,
       "stock": 87,
       "features": [
         "Son 360°",
@@ -269,534 +244,249 @@
         "Résistant aux chocs"
       ],
       "createdAt": "2024-11-12T09:20:00.000Z"
+    },
+    {
+      "id": "9",
+      "name": "Clavier Mécanique RGB",
+      "description": "Clavier mécanique avec rétroéclairage RGB personnalisable, switches bleus et structure en aluminium.",
+      "price": 119.99,
+      "originalPrice": 149.99,
+      "category": "electronics",
+      "image": "https://mk-media.mytek.tn/media/catalog/product/cache/8be3f98b14227a82112b46963246dfe1/c/l/clavier-mecanique-gamer-sans-fil-star-wave-mk1103-azerty-rgb.jpg",
+      "images": [
+        "https://mk-media.mytek.tn/media/catalog/product/cache/8be3f98b14227a82112b46963246dfe1/c/l/clavier-mecanique-gamer-sans-fil-star-wave-mk1103-azerty-rgb.jpg"
+      ],
+      "rating": 0,
+      "reviews": 0,
+      "stock": 132,
+      "features": [
+        "Rétroéclairage RGB",
+        "Switchs bleus",
+        "Structure aluminium",
+        "Anti-ghosting complet"
+      ],
+      "createdAt": "2024-12-01T11:00:00.000Z"
+    },
+    {
+      "id": "10",
+      "name": "Lunettes de Soleil Polarisées",
+      "description": "Lunettes de soleil avec verres polarisés UV400 et monture en alliage léger.",
+      "price": 59.99,
+      "category": "fashion",
+      "image": "https://mk-media.mytek.tn/media/catalog/product/cache/8be3f98b14227a82112b46963246dfe1/l/u/lunettes_de_soleil_randonn_e_mh100_adulte_-_noir_13_.jpg",
+      "images": [
+        "https://mk-media.mytek.tn/media/catalog/product/cache/8be3f98b14227a82112b46963246dfe1/l/u/lunettes_de_soleil_randonn_e_mh100_adulte_-_noir_13_.jpg",
+        "https://mk-media.mytek.tn/media/catalog/product/cache/8be3f98b14227a82112b46963246dfe1/l/u/lunettes_de_soleil_randonn_e_mh100_adulte_-_noir_8_.jpg"
+      ],
+      "rating": 0,
+      "reviews": 0,
+      "stock": 84,
+      "features": [
+        "Verres polarisés UV400",
+        "Monture légère",
+        "Étui inclus",
+        "Résistant aux rayures"
+      ],
+      "createdAt": "2024-12-10T14:20:00.000Z"
+    },
+    {
+      "id": "11",
+      "name": "Aspirateur Robot SmartClean",
+      "description": "Aspirateur robot avec cartographie intelligente, contrôle via application et autonomie 120 minutes.",
+      "price": 349.99,
+      "originalPrice": 449.99,
+      "category": "home",
+      "image": "https://mk-media.mytek.tn/media/catalog/product/cache/8be3f98b14227a82112b46963246dfe1/a/s/aspirateur-robot-hoover-hg430h011-noir.jpg",
+      "images": [
+        "https://mk-media.mytek.tn/media/catalog/product/cache/8be3f98b14227a82112b46963246dfe1/a/s/aspirateur-robot-hoover-hg430h011-noir.jpg",
+        "https://mk-media.mytek.tn/media/catalog/product/cache/8be3f98b14227a82112b46963246dfe1/a/s/aspirateur-robot-hoover-hg430h011-noir-2.jpg"
+      ],
+      "rating": 0,
+      "reviews": 0,
+      "stock": 41,
+      "features": [
+        "Cartographie intelligente",
+        "Autonomie 120 min",
+        "Application mobile",
+        "Retour automatique à la base"
+      ],
+      "createdAt": "2024-12-18T16:00:00.000Z"
+    },
+    {
+      "id": "12",
+      "name": "Gourde Isotherme Inox",
+      "description": "Bouteille isotherme en acier inoxydable, conserve les boissons chaudes 12h et froides 24h.",
+      "price": 29.99,
+      "category": "sports",
+      "image": "https://mk-media.mytek.tn/media/catalog/product/cache/8be3f98b14227a82112b46963246dfe1/g/o/gourde-maped-concept-kids-430-ml---rose-1.jpg",
+      "images": [
+        "https://mk-media.mytek.tn/media/catalog/product/cache/8be3f98b14227a82112b46963246dfe1/g/o/gourde-maped-concept-kids-430-ml---rose-1.jpg",
+        "https://mk-media.mytek.tn/media/catalog/product/cache/8be3f98b14227a82112b46963246dfe1/g/o/gourde-maped-concept-kids-430-ml---rose.jpg"
+      ],
+      "rating": 0,
+      "reviews": 0,
+      "stock": 208,
+      "features": [
+        "Acier inoxydable",
+        "12h chaud / 24h froid",
+        "Sans BPA",
+        "Antifuite"
+      ],
+      "createdAt": "2025-01-05T08:30:00.000Z"
+    },
+    {
+      "id": "13",
+      "name": "Tablette Graphique ProDraw",
+      "description": "Tablette graphique avec stylet 8192 niveaux de pression et connexion USB-C.",
+      "price": 199.99,
+      "originalPrice": 259.99,
+      "category": "electronics",
+      "image": "https://mk-media.mytek.tn/media/catalog/product/cache/8be3f98b14227a82112b46963246dfe1/t/a/tablette-graphique-wacom-one-s-ctc4110wlw2b-mt.jpg",
+      "images": [
+        "https://mk-media.mytek.tn/media/catalog/product/cache/8be3f98b14227a82112b46963246dfe1/t/a/tablette-graphique-wacom-one-s-ctc4110wlw2b-mt.jpg",
+        "https://mk-media.mytek.tn/media/catalog/product/cache/8be3f98b14227a82112b46963246dfe1/t/a/tablette-graphique-wacom-one-s-ctc4110wlw2b-1.jpg",
+        "https://mk-media.mytek.tn/media/catalog/product/cache/8be3f98b14227a82112b46963246dfe1/t/a/tablette-graphique-wacom-one-s-ctc4110wlw2b-3.jpg"
+      ],
+      "rating": 0,
+      "reviews": 0,
+      "stock": 72,
+      "features": [
+        "8192 niveaux de pression",
+        "Stylet sans pile",
+        "Connexion USB-C",
+        "Surface lisse"
+      ],
+      "createdAt": "2025-01-22T13:00:00.000Z"
+    },
+    {
+      "id": "14",
+      "name": "Chaise de Bureau Ergonomique",
+      "description": "Chaise réglable avec support lombaire, accoudoirs 3D et tissu respirant.",
+      "price": 259.99,
+      "category": "home",
+      "image": "https://mk-media.mytek.tn/media/catalog/product/cache/8be3f98b14227a82112b46963246dfe1/c/h/chaise-gaming-dowinx-ls-6668-4d-avec-accoudoirs-bleu-k.jpg",
+      "images": [
+        "https://mk-media.mytek.tn/media/catalog/product/cache/8be3f98b14227a82112b46963246dfe1/c/h/chaise-gaming-dowinx-ls-6668-4d-avec-accoudoirs-bleu-k.jpg",
+        "https://mk-media.mytek.tn/media/catalog/product/cache/8be3f98b14227a82112b46963246dfe1/c/h/chaise-gaming-dowinx-ls-6668-4d-avec-accoudoirs-bleu-p.jpg"
+      ],
+      "rating": 0,
+      "reviews": 0,
+      "stock": 95,
+      "features": [
+        "Support lombaire réglable",
+        "Accoudoirs 3D",
+        "Tissu respirant",
+        "Hauteur ajustable"
+      ],
+      "createdAt": "2025-02-04T09:10:00.000Z"
+    },
+    {
+      "id": "15",
+      "name": "Caméra de Sécurité Wi-Fi",
+      "description": "Caméra intérieure connectée avec vision nocturne, détection de mouvement et stockage cloud.",
+      "price": 89.99,
+      "originalPrice": 129.99,
+      "category": "electronics",
+      "image": "https://mk-media.mytek.tn/media/catalog/product/cache/8be3f98b14227a82112b46963246dfe1/c/a/cam_ra_de_s_curit_sans_fil_double_objectif_3mp.jpg",
+      "images": [
+        "https://mk-media.mytek.tn/media/catalog/product/cache/8be3f98b14227a82112b46963246dfe1/c/a/cam_ra_de_s_curit_sans_fil_double_objectif_3mp.jpg",
+        "https://mk-media.mytek.tn/media/catalog/product/cache/8be3f98b14227a82112b46963246dfe1/c/a/cam_ra_de_s_curit_sans_fil_double_objectif_3mp_3_.jpg",
+        "https://mk-media.mytek.tn/media/catalog/product/cache/8be3f98b14227a82112b46963246dfe1/c/a/cam_ra_de_s_curit_sans_fil_double_objectif_3mp_4_.jpg",
+        "https://mk-media.mytek.tn/media/catalog/product/cache/8be3f98b14227a82112b46963246dfe1/c/a/cam_ra_de_s_curit_sans_fil_double_objectif_3mp_1_.jpg"
+      ],
+      "rating": 0,
+      "reviews": 0,
+      "stock": 163,
+      "features": [
+        "Vision nocturne HD",
+        "Détection de mouvement",
+        "Stockage cloud",
+        "Audio bidirectionnel"
+      ],
+      "createdAt": "2025-02-12T10:45:00.000Z"
+    },
+    {
+      "id": "16",
+      "name": "Bracelet Connecté Fitness",
+      "description": "Bracelet intelligent avec suivi du sommeil, podomètre et notifications en temps réel.",
+      "price": 69.99,
+      "category": "sports",
+      "image": "https://s.alicdn.com/@sc04/kf/Hff27531f33504f13a9d3bc5e4282c9c2l.jpg?avif=close&webp=close",
+      "images": [
+        "https://s.alicdn.com/@sc04/kf/Hff27531f33504f13a9d3bc5e4282c9c2l.jpg?avif=close&webp=close",
+        "https://s.alicdn.com/@sc04/kf/Ha3a454b3a75f4b1992f633767eeb9ec8u.jpg?avif=close&webp=close",
+        "https://s.alicdn.com/@sc04/kf/H61d58566d7fc490eb3bf51abf5e7884dH.jpg?avif=close&webp=close",
+        "https://s.alicdn.com/@sc04/kf/Hce755c2c3dac4b8ea84f87cb1cc274b8c.jpg?avif=close&webp=close",
+        "https://s.alicdn.com/@sc04/kf/H0c785ba515ab4d33bd11e8d2f9ef9aa1d.jpg?avif=close&webp=close"
+      ],
+      "rating": 0,
+      "reviews": 0,
+      "stock": 211,
+      "features": [
+        "Suivi du sommeil",
+        "Podomètre intégré",
+        "Notifications smartphone",
+        "Autonomie 10 jours"
+      ],
+      "createdAt": "2025-03-01T12:00:00.000Z"
     }
   ],
   "orders": [
     {
-      "id": "order_1761156821865",
-      "userId": 1760776647335,
-      "items": [
-        {
-          "product": {
-            "id": "1",
-            "name": "Casque Sans Fil Premium",
-            "description": "Casque audio sans fil avec réduction de bruit active, autonomie de 30 heures et son haute fidélité.",
-            "price": 299.99,
-            "originalPrice": 399.99,
-            "category": "electronics",
-            "image": "/premium-wireless-headphones.png",
-            "images": [
-              "/premium-wireless-headphones-front-view.jpg",
-              "/premium-wireless-headphones-side.png",
-              "/premium-wireless-headphones-folded.png"
-            ],
-            "rating": 4.8,
-            "reviews": 342,
-            "stock": 45,
-            "features": [
-              "Réduction de bruit active",
-              "Autonomie 30h",
-              "Bluetooth 5.0",
-              "Pliable",
-              "Microphone intégré"
-            ],
-            "createdAt": "2024-05-10T14:48:00.000Z"
-          },
-          "quantity": 1
-        }
-      ],
-      "totalAmount": 299.99,
-      "shippingAddress": "",
-      "orderDate": "2025-10-22T18:13:41.865Z",
-      "status": "processing"
-    },
-    {
-      "id": "order_1761157722424",
-      "userId": 1760776647335,
-      "items": [
-        {
-          "product": {
-            "id": "1",
-            "name": "Casque Sans Fil Premium",
-            "description": "Casque audio sans fil avec réduction de bruit active, autonomie de 30 heures et son haute fidélité.",
-            "price": 299.99,
-            "originalPrice": 399.99,
-            "category": "electronics",
-            "image": "/premium-wireless-headphones.png",
-            "images": [
-              "/premium-wireless-headphones-front-view.jpg",
-              "/premium-wireless-headphones-side.png",
-              "/premium-wireless-headphones-folded.png"
-            ],
-            "rating": 4.8,
-            "reviews": 342,
-            "stock": 45,
-            "features": [
-              "Réduction de bruit active",
-              "Autonomie 30h",
-              "Bluetooth 5.0",
-              "Pliable",
-              "Microphone intégré"
-            ],
-            "createdAt": "2024-05-10T14:48:00.000Z"
-          },
-          "quantity": 1
-        },
-        {
-          "product": {
-            "id": "2",
-            "name": "Montre Connectée Sport",
-            "description": "Montre intelligente avec suivi d'activité, GPS intégré et résistance à l'eau jusqu'à 50m.",
-            "price": 249.99,
-            "category": "electronics",
-            "image": "/sport-smartwatch.jpg",
-            "images": [
-              "/sport-smartwatch-display.jpg",
-              "/sport-smartwatch-on-wrist.jpg",
-              "/sport-smartwatch-charging.jpg"
-            ],
-            "rating": 4.6,
-            "reviews": 218,
-            "stock": 32,
-            "features": [
-              "GPS intégré",
-              "Étanche 50m",
-              "Suivi cardiaque",
-              "7 jours d'autonomie"
-            ],
-            "createdAt": "2024-06-15T09:30:00.000Z"
-          },
-          "quantity": 1
-        },
-        {
-          "product": {
-            "id": "3",
-            "name": "Sac à Dos Urbain",
-            "description": "Sac à dos élégant et fonctionnel avec compartiment pour ordinateur portable 15 pouces et port USB.",
-            "price": 79.99,
-            "originalPrice": 99.99,
-            "category": "fashion",
-            "image": "/modern-urban-backpack.png",
-            "images": [
-              "/urban-backpack-front.jpg",
-              "/urban-backpack-open-compartments.jpg",
-              "/urban-backpack-worn.jpg"
-            ],
-            "rating": 4.7,
-            "reviews": 156,
-            "stock": 68,
-            "features": [
-              "Compartiment laptop 15''",
-              "Port USB",
-              "Imperméable",
-              "Bretelles ergonomiques"
-            ],
-            "createdAt": "2024-07-20T11:15:00.000Z"
-          },
-          "quantity": 1
-        },
-        {
-          "product": {
-            "id": "4",
-            "name": "Lampe LED Intelligente",
-            "description": "Lampe de bureau LED avec contrôle tactile, température de couleur ajustable et port de charge USB.",
-            "price": 59.99,
-            "category": "home",
-            "image": "/smart-led-desk-lamp.jpg",
-            "images": [
-              "/led-desk-lamp-on.jpg",
-              "/led-desk-lamp-different-colors.jpg",
-              "/led-desk-lamp-on-desk.jpg"
-            ],
-            "rating": 4.5,
-            "reviews": 89,
-            "stock": 124,
-            "features": [
-              "Contrôle tactile",
-              "3 températures de couleur",
-              "Port USB",
-              "Économie d'énergie"
-            ],
-            "createdAt": "2024-08-01T10:00:00.000Z"
-          },
-          "quantity": 1
-        },
-        {
-          "product": {
-            "id": "5",
-            "name": "Tapis de Yoga Premium",
-            "description": "Tapis de yoga antidérapant en matériau écologique, épaisseur 6mm pour un confort optimal.",
-            "price": 49.99,
-            "category": "sports",
-            "image": "/premium-yoga-mat-rolled.jpg",
-            "images": [
-              "/yoga-mat-unrolled.jpg",
-              "/yoga-mat-in-use.png",
-              "/yoga-mat-texture-close-up.jpg"
-            ],
-            "rating": 4.9,
-            "reviews": 267,
-            "stock": 91,
-            "features": [
-              "Antidérapant",
-              "Écologique",
-              "6mm d'épaisseur",
-              "Sac de transport inclus"
-            ],
-            "createdAt": "2024-08-01T10:00:00.000Z"
-          },
-          "quantity": 1
-        }
-      ],
-      "totalAmount": 739.95,
-      "shippingAddress": "",
-      "orderDate": "2025-10-22T18:28:42.424Z",
-      "status": "processing"
-    },
-    {
-      "id": "order_1761158016870",
-      "userId": 1760776647335,
-      "items": [
-        {
-          "product": {
-            "id": "5",
-            "name": "Tapis de Yoga Premium",
-            "description": "Tapis de yoga antidérapant en matériau écologique, épaisseur 6mm pour un confort optimal.",
-            "price": 49.99,
-            "category": "sports",
-            "image": "/premium-yoga-mat-rolled.jpg",
-            "images": [
-              "/yoga-mat-unrolled.jpg",
-              "/yoga-mat-in-use.png",
-              "/yoga-mat-texture-close-up.jpg"
-            ],
-            "rating": 4.9,
-            "reviews": 267,
-            "stock": 91,
-            "features": [
-              "Antidérapant",
-              "Écologique",
-              "6mm d'épaisseur",
-              "Sac de transport inclus"
-            ],
-            "createdAt": "2024-08-01T10:00:00.000Z"
-          },
-          "quantity": 1
-        }
-      ],
-      "totalAmount": 49.99,
-      "shippingAddress": "",
-      "orderDate": "2025-10-22T18:33:36.870Z",
-      "status": "processing"
-    },
-    {
-      "id": "order_1761158152397",
+      "id": "ORDR_1761945304647",
       "userId": 1761158069182,
       "items": [
         {
           "product": {
-            "id": "1",
-            "name": "Casque Sans Fil Premium",
-            "description": "Casque audio sans fil avec réduction de bruit active, autonomie de 30 heures et son haute fidélité.",
-            "price": 299.99,
-            "originalPrice": 399.99,
+            "id": "15",
+            "name": "Caméra de Sécurité Wi-Fi",
+            "description": "Caméra intérieure connectée avec vision nocturne, détection de mouvement et stockage cloud.",
+            "price": 89.99,
+            "originalPrice": 129.99,
             "category": "electronics",
-            "image": "/premium-wireless-headphones.png",
+            "image": "https://mk-media.mytek.tn/media/catalog/product/cache/8be3f98b14227a82112b46963246dfe1/c/a/cam_ra_de_s_curit_sans_fil_double_objectif_3mp.jpg",
             "images": [
-              "/premium-wireless-headphones-front-view.jpg",
-              "/premium-wireless-headphones-side.png",
-              "/premium-wireless-headphones-folded.png"
+              "https://mk-media.mytek.tn/media/catalog/product/cache/8be3f98b14227a82112b46963246dfe1/c/a/cam_ra_de_s_curit_sans_fil_double_objectif_3mp.jpg",
+              "https://mk-media.mytek.tn/media/catalog/product/cache/8be3f98b14227a82112b46963246dfe1/c/a/cam_ra_de_s_curit_sans_fil_double_objectif_3mp_3_.jpg",
+              "https://mk-media.mytek.tn/media/catalog/product/cache/8be3f98b14227a82112b46963246dfe1/c/a/cam_ra_de_s_curit_sans_fil_double_objectif_3mp_4_.jpg",
+              "https://mk-media.mytek.tn/media/catalog/product/cache/8be3f98b14227a82112b46963246dfe1/c/a/cam_ra_de_s_curit_sans_fil_double_objectif_3mp_1_.jpg"
             ],
-            "rating": 4.8,
-            "reviews": 342,
-            "stock": 45,
+            "rating": 0,
+            "reviews": 0,
+            "stock": 163,
             "features": [
-              "Réduction de bruit active",
-              "Autonomie 30h",
-              "Bluetooth 5.0",
-              "Pliable",
-              "Microphone intégré"
+              "Vision nocturne HD",
+              "Détection de mouvement",
+              "Stockage cloud",
+              "Audio bidirectionnel"
             ],
-            "createdAt": "2024-05-10T14:48:00.000Z"
+            "createdAt": "2025-02-12T10:45:00.000Z"
           },
           "quantity": 1
         }
       ],
-      "totalAmount": 299.99,
-      "shippingAddress": "",
-      "orderDate": "2025-10-22T18:35:52.397Z",
-      "status": "processing"
-    },
-    {
-      "id": "order_1761160596363",
-      "userId": 1761158069182,
-      "items": [
-        {
-          "product": {
-            "id": "1",
-            "name": "Casque Sans Fil Premium",
-            "description": "Casque audio sans fil avec réduction de bruit active, autonomie de 30 heures et son haute fidélité.",
-            "price": 299.99,
-            "originalPrice": 399.99,
-            "category": "electronics",
-            "image": "/premium-wireless-headphones.png",
-            "images": [
-              "/premium-wireless-headphones-front-view.jpg",
-              "/premium-wireless-headphones-side.png",
-              "/premium-wireless-headphones-folded.png"
-            ],
-            "rating": 4.8,
-            "reviews": 342,
-            "stock": 35,
-            "features": [
-              "Réduction de bruit active",
-              "Autonomie 30h",
-              "Bluetooth 5.0",
-              "Pliable",
-              "Microphone intégré"
-            ],
-            "createdAt": "2024-05-10T14:48:00.000Z"
-          },
-          "quantity": 10
-        }
-      ],
-      "totalAmount": 2999.9,
-      "shippingAddress": "",
-      "orderDate": "2025-10-22T19:16:36.363Z",
-      "status": "processing"
-    },
-    {
-      "id": "order_1761160649052",
-      "userId": 1761158069182,
-      "items": [
-        {
-          "product": {
-            "id": "1",
-            "name": "Casque Sans Fil Premium",
-            "description": "Casque audio sans fil avec réduction de bruit active, autonomie de 30 heures et son haute fidélité.",
-            "price": 299.99,
-            "originalPrice": 399.99,
-            "category": "electronics",
-            "image": "/premium-wireless-headphones.png",
-            "images": [
-              "/premium-wireless-headphones-front-view.jpg",
-              "/premium-wireless-headphones-side.png",
-              "/premium-wireless-headphones-folded.png"
-            ],
-            "rating": 4.8,
-            "reviews": 342,
-            "stock": 0,
-            "features": [
-              "Réduction de bruit active",
-              "Autonomie 30h",
-              "Bluetooth 5.0",
-              "Pliable",
-              "Microphone intégré"
-            ],
-            "createdAt": "2024-05-10T14:48:00.000Z"
-          },
-          "quantity": 35
-        }
-      ],
-      "totalAmount": 10499.65,
-      "shippingAddress": "",
-      "orderDate": "2025-10-22T19:17:29.052Z",
-      "status": "processing"
-    },
-    {
-      "id": "ORDR_1761171643474",
-      "userId": 1761158069182,
-      "items": [
-        {
-          "product": {
-            "id": "2",
-            "name": "Montre Connectée Sport",
-            "description": "Montre intelligente avec suivi d'activité, GPS intégré et résistance à l'eau jusqu'à 50m.",
-            "price": 249.99,
-            "category": "electronics",
-            "image": "/sport-smartwatch.jpg",
-            "images": [
-              "/sport-smartwatch-display.jpg",
-              "/sport-smartwatch-on-wrist.jpg",
-              "/sport-smartwatch-charging.jpg"
-            ],
-            "rating": 4.6,
-            "reviews": 218,
-            "stock": 27,
-            "features": [
-              "GPS intégré",
-              "Étanche 50m",
-              "Suivi cardiaque",
-              "7 jours d'autonomie"
-            ],
-            "createdAt": "2024-06-15T09:30:00.000Z"
-          },
-          "quantity": 5
-        }
-      ],
-      "totalAmount": 1249.95,
-      "shippingAddress": "",
-      "orderDate": "2025-10-22T22:20:43.474Z",
-      "status": "processing"
-    },
-    {
-      "id": "ORDR_1761298176364",
-      "userId": 1760776647335,
-      "items": [
-        {
-          "product": {
-            "id": "3",
-            "name": "Sac à Dos Urbain",
-            "description": "Sac à dos élégant et fonctionnel avec compartiment pour ordinateur portable 15 pouces et port USB.",
-            "price": 79.99,
-            "originalPrice": 99.99,
-            "category": "fashion",
-            "image": "/modern-urban-backpack.png",
-            "images": [
-              "/urban-backpack-front.jpg",
-              "/urban-backpack-open-compartments.jpg",
-              "/urban-backpack-worn.jpg"
-            ],
-            "rating": 4.7,
-            "reviews": 156,
-            "stock": 67,
-            "features": [
-              "Compartiment laptop 15''",
-              "Port USB",
-              "Imperméable",
-              "Bretelles ergonomiques"
-            ],
-            "createdAt": "2024-07-20T11:15:00.000Z"
-          },
-          "quantity": 1
-        }
-      ],
-      "totalAmount": 79.99,
-      "shippingAddress": "",
-      "orderDate": "2025-10-24T09:29:36.364Z",
+      "totalAmount": 89.99,
+      "shippingAddress": "tok_1SOPf193VfybQN6eSibybPRH",
+      "orderDate": "2025-10-31T21:15:04.647Z",
       "status": "processing"
     }
   ],
   "reviews": [
     {
-      "id": "RV_1761341690127",
-      "productId": "8",
-      "userName": "Johnd Doe",
-      "rating": 4,
-      "comment": "good one",
-      "date": "2025-10-24T21:34:50.127Z"
-    },
-    {
-      "id": "RV_1761341894666",
-      "productId": "8",
-      "userName": "Johnd Doe",
-      "rating": 4,
-      "comment": "good",
-      "date": "2025-10-24T21:38:14.666Z"
-    },
-    {
-      "id": "RV_1761341903150",
-      "productId": "8",
-      "userName": "Johnd Doe",
-      "rating": 3,
-      "comment": "good",
-      "date": "2025-10-24T21:38:23.150Z"
-    },
-    {
-      "id": "RV_1761341945740",
-      "productId": "8",
-      "userName": "Johnd Doe",
-      "rating": 2,
-      "comment": "good",
-      "date": "2025-10-24T21:39:05.740Z"
-    },
-    {
-      "id": "RV_1761342013629",
-      "productId": "8",
-      "userName": "Johnd Doe",
-      "rating": 1,
-      "comment": "good",
-      "date": "2025-10-24T21:40:13.629Z"
-    },
-    {
-      "id": "RV_1761342058415",
-      "productId": "8",
+      "id": "RV_1761945093814",
+      "productId": "7",
       "userName": "Johnd Doe",
       "rating": 5,
-      "comment": "good",
-      "date": "2025-10-24T21:40:58.415Z"
+      "comment": "Good Product !",
+      "date": "2025-10-31T21:11:33.814Z"
     },
     {
-      "id": "RV_1761342157532",
-      "productId": "8",
+      "id": "RV_1761945196917",
+      "productId": "5",
       "userName": "Johnd Doe",
       "rating": 5,
-      "comment": "dzzdz",
-      "date": "2025-10-24T21:42:37.532Z"
-    },
-    {
-      "id": "RV_1761342264982",
-      "productId": "8",
-      "userName": "Johnd Doe",
-      "rating": 5,
-      "comment": "dzdz",
-      "date": "2025-10-24T21:44:24.982Z"
-    },
-    {
-      "id": "RV_1761342343703",
-      "productId": "8",
-      "userName": "Johnd Doe",
-      "rating": 5,
-      "comment": "dzdzss",
-      "date": "2025-10-24T21:45:43.703Z"
-    },
-    {
-      "id": "RV_1761342350114",
-      "productId": "8",
-      "userName": "Johnd Doe",
-      "rating": 5,
-      "comment": "sssdzdzss",
-      "date": "2025-10-24T21:45:50.114Z"
-    },
-    {
-      "id": "RV_1761342394698",
-      "productId": "8",
-      "userName": "Johnd Doe",
-      "rating": 1,
-      "comment": "sasa",
-      "date": "2025-10-24T21:46:34.698Z"
-    },
-    {
-      "id": "RV_1761342427762",
-      "productId": "8",
-      "userName": "Johnd Doe",
-      "rating": 1,
-      "comment": "dzdz",
-      "date": "2025-10-24T21:47:07.762Z"
-    },
-    {
-      "id": "RV_1761342550284",
-      "productId": "8",
-      "userName": "Johnd Doe",
-      "rating": 5,
-      "comment": "dddd",
-      "date": "2025-10-24T21:49:10.284Z"
-    },
-    {
-      "id": "RV_1761342591964",
-      "productId": "8",
-      "userName": "Johnd Doe",
-      "rating": 5,
-      "comment": "dzddzdz",
-      "date": "2025-10-24T21:49:51.964Z"
-    },
-    {
-      "id": "RV_1761342937072",
-      "productId": "1",
-      "userName": "Johnd Doe",
-      "rating": 1,
-      "comment": "test",
-      "date": "2025-10-24T21:55:37.072Z"
+      "comment": "good product!",
+      "date": "2025-10-31T21:13:16.917Z"
     }
   ]
 }

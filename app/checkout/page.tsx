@@ -18,24 +18,83 @@ import { useCart } from "@/lib/CartContext";
 import { useAuth } from "@/lib/AuthContext";
 import useOrder from "@/lib/OrderContext";
 import ProtectedRoute from "@/lib/ProtectedRoutes";
+import { loadStripe } from "@stripe/stripe-js";
 
-export default function CheckoutPage() {
+import {
+  Elements,
+  CardElement,
+  useStripe,
+  useElements,
+} from "@stripe/react-stripe-js";
+
+const stripePromise = loadStripe(
+  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || ""
+);
+
+const CARD_ELEMENT_OPTIONS = {
+  style: {
+    base: {
+      color: "#111827",
+      fontSize: "16px",
+      fontFamily: "Inter, Roboto, sans-serif",
+      "::placeholder": {
+        color: "#9CA3AF",
+      },
+    },
+    invalid: {
+      color: "#ef4444",
+    },
+  },
+};
+function CheckoutFormContent() {
   const router = useRouter();
   const { items, totalPrice, clearCart } = useCart();
   const { isAuthenticated, user } = useAuth();
   const [paymentMethod, setPaymentMethod] = useState("card");
   const [shippingMethod, setShippingMethod] = useState("standard");
   const { confirmOrder } = useOrder();
-
+  const stripe = useStripe();
+  const elements = useElements();
   const shippingCost =
     totalPrice >= 50 ? 0 : shippingMethod === "express" ? 9.99 : 4.99;
   const finalTotal = totalPrice + shippingCost;
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    const id = await confirmOrder(items, totalPrice, "");
-    clearCart();
-    router.push(`/order-confirmation?id=${id}`);
+  const handleSubmit = async (e?: React.FormEvent) => {
+    if (e) e.preventDefault();
+    let paymentToken = "";
+
+    if (paymentMethod === "card") {
+      if (!stripe || !elements) {
+        alert("Stripe n'est pas encore chargé. Réessayez dans un instant.");
+        return;
+      }
+
+      const cardElement = elements.getElement(CardElement);
+      if (!cardElement) {
+        alert("Element de carte introuvable.");
+        return;
+      }
+
+      const result = await stripe.createToken(cardElement);
+      if (result.error) {
+        alert(
+          result.error.message ||
+            "Erreur lors de la création du token de paiement."
+        );
+        return;
+      }
+
+      paymentToken = result.token?.id || "";
+    }
+
+    try {
+      const id = await confirmOrder(items, totalPrice, paymentToken);
+      clearCart();
+      router.push(`/order-confirmation?id=${id}`);
+    } catch (err) {
+      console.error(err);
+      alert("Erreur lors de la création de la commande.");
+    }
   };
 
   return (
@@ -135,7 +194,7 @@ export default function CheckoutPage() {
                       <div className="grid gap-4 sm:grid-cols-2">
                         <div className="space-y-2">
                           <Label htmlFor="city">Ville</Label>
-                          <Input id="city" placeholder="Paris" required />
+                          <Input id="city" placeholder="Tunis" required />
                         </div>
                         <div className="space-y-2">
                           <Label htmlFor="postalCode">Code postal</Label>
@@ -144,7 +203,7 @@ export default function CheckoutPage() {
                       </div>
                       <div className="space-y-2">
                         <Label htmlFor="country">Pays</Label>
-                        <Input id="country" defaultValue="France" required />
+                        <Input id="country" defaultValue="Tunisie" required />
                       </div>
                     </CardContent>
                   </Card>
@@ -220,30 +279,26 @@ export default function CheckoutPage() {
                             className="flex items-center gap-2 cursor-pointer"
                           >
                             <CreditCard className="h-5 w-5 text-muted-foreground" />
-                            <span>Carte bancaire</span>
+                            <span>Carte bancaire (Stripe)</span>
+                          </Label>
+                        </div>
+
+                        <div className="flex items-center gap-3 rounded-lg border p-4">
+                          <RadioGroupItem value="cash" id="cash" />
+                          <Label
+                            htmlFor="cash"
+                            className="flex items-center gap-2 cursor-pointer"
+                          >
+                            <span>Paiement à la livraison</span>
                           </Label>
                         </div>
                       </RadioGroup>
 
                       {paymentMethod === "card" && (
                         <div className="space-y-4 pt-4">
-                          <div className="space-y-2">
-                            <Label htmlFor="cardNumber">Numéro de carte</Label>
-                            <Input
-                              id="cardNumber"
-                              placeholder="1234 5678 9012 3456"
-                              required
-                            />
-                          </div>
-                          <div className="grid gap-4 sm:grid-cols-2">
-                            <div className="space-y-2">
-                              <Label htmlFor="expiry">Date d'expiration</Label>
-                              <Input id="expiry" placeholder="MM/AA" required />
-                            </div>
-                            <div className="space-y-2">
-                              <Label htmlFor="cvv">CVV</Label>
-                              <Input id="cvv" placeholder="123" required />
-                            </div>
+                          <Label>Informations de carte</Label>
+                          <div className="rounded-md border p-3">
+                            <CardElement options={CARD_ELEMENT_OPTIONS} />
                           </div>
                         </div>
                       )}
@@ -318,6 +373,46 @@ export default function CheckoutPage() {
                 </div>
               </div>
             </form>
+          </div>
+        </section>
+      </main>
+
+      <Footer />
+    </div>
+  );
+}
+
+export default function CheckoutPage() {
+  const { items, totalPrice, clearCart } = useCart();
+  const { isAuthenticated, user } = useAuth();
+  const { confirmOrder } = useOrder();
+
+  // Wrap form content in Elements so Stripe Elements are available
+  return (
+    <div className="flex min-h-screen flex-col">
+      <main className="flex-1 bg-muted/50">
+        {/* Page Header */}
+        <section className="border-b bg-background py-8">
+          <div className="container mx-auto px-4">
+            <h1 className="text-3xl font-bold tracking-tight">
+              Finaliser la commande
+            </h1>
+          </div>
+        </section>
+
+        {/* Checkout Form */}
+        <section className="py-12">
+          <div className="container mx-auto px-4">
+            <Elements stripe={stripePromise}>
+              <CheckoutFormContent
+                items={items}
+                totalPrice={totalPrice}
+                clearCart={clearCart}
+                confirmOrder={confirmOrder}
+                user={user}
+                isAuthenticated={isAuthenticated}
+              />
+            </Elements>
           </div>
         </section>
       </main>
