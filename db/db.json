@@ -92,7 +92,7 @@
       ],
       "rating": 4.6,
       "reviews": 218,
-      "stock": 26,
+      "stock": 24,
       "features": [
         "GPS intégré",
         "Étanche 50m",
@@ -468,6 +468,76 @@
       "totalAmount": 89.99,
       "shippingAddress": "tok_1SOPf193VfybQN6eSibybPRH",
       "orderDate": "2025-10-31T21:15:04.647Z",
+      "status": "processing"
+    },
+    {
+      "id": "ORDR_1761945578719",
+      "userId": 1761158069182,
+      "items": [
+        {
+          "product": {
+            "id": "2",
+            "name": "Montre Connectée Sport",
+            "description": "Montre intelligente avec suivi d'activité, GPS intégré et résistance à l'eau jusqu'à 50m.",
+            "price": 249.99,
+            "category": "electronics",
+            "image": "https://mk-media.mytek.tn/media/catalog/product/cache/8be3f98b14227a82112b46963246dfe1/m/o/montre_connect_e_qcy_active_gx_-_noir_2_x.jpg",
+            "images": [
+              "https://mk-media.mytek.tn/media/catalog/product/cache/8be3f98b14227a82112b46963246dfe1/m/o/montre_connect_e_qcy_active_gx_-_noir_2_x.jpg",
+              "https://mk-media.mytek.tn/media/catalog/product/cache/8be3f98b14227a82112b46963246dfe1/m/o/montre_connect_e_qcy_active_gx_-_noirx.jpg"
+            ],
+            "rating": 4.6,
+            "reviews": 218,
+            "stock": 25,
+            "features": [
+              "GPS intégré",
+              "Étanche 50m",
+              "Suivi cardiaque",
+              "7 jours d'autonomie"
+            ],
+            "createdAt": "2024-06-15T09:30:00.000Z"
+          },
+          "quantity": 1
+        }
+      ],
+      "totalAmount": 249.99,
+      "shippingAddress": "tok_1SOPjR93VfybQN6eYmG7Gpwg",
+      "orderDate": "2025-10-31T21:19:38.719Z",
+      "status": "processing"
+    },
+    {
+      "id": "ORDR_1761945955472",
+      "userId": 1761158069182,
+      "items": [
+        {
+          "product": {
+            "id": "2",
+            "name": "Montre Connectée Sport",
+            "description": "Montre intelligente avec suivi d'activité, GPS intégré et résistance à l'eau jusqu'à 50m.",
+            "price": 249.99,
+            "category": "electronics",
+            "image": "https://mk-media.mytek.tn/media/catalog/product/cache/8be3f98b14227a82112b46963246dfe1/m/o/montre_connect_e_qcy_active_gx_-_noir_2_x.jpg",
+            "images": [
+              "https://mk-media.mytek.tn/media/catalog/product/cache/8be3f98b14227a82112b46963246dfe1/m/o/montre_connect_e_qcy_active_gx_-_noir_2_x.jpg",
+              "https://mk-media.mytek.tn/media/catalog/product/cache/8be3f98b14227a82112b46963246dfe1/m/o/montre_connect_e_qcy_active_gx_-_noirx.jpg"
+            ],
+            "rating": 4.6,
+            "reviews": 218,
+            "stock": 24,
+            "features": [
+              "GPS intégré",
+              "Étanche 50m",
+              "Suivi cardiaque",
+              "7 jours d'autonomie"
+            ],
+            "createdAt": "2024-06-15T09:30:00.000Z"
+          },
+          "quantity": 1
+        }
+      ],
+      "totalAmount": 249.99,
+      "shippingAddress": "tok_1SOPpW93VfybQN6e9hx9Eh0j",
+      "orderDate": "2025-10-31T21:25:55.472Z",
       "status": "processing"
     }
   ],
