@@ -1,6 +1,7 @@
 import { Category, Product, Review } from "@/db/models";
 import { useEffect, useState } from "react";
 import { useAuth } from "./AuthContext";
+import apiLink from "./constants";
 
 export function useProducts(params?: { id: number }) {
   const [products, setProducts] = useState<Product[]>([]);
@@ -34,7 +35,7 @@ export function useProducts(params?: { id: number }) {
   const getProducts = async () => {
     try {
       await new Promise((resolve) => setTimeout(resolve, 1000));
-      const res = await fetch("http://localhost:5000/products");
+      const res = await fetch(`${apiLink}/products`);
       const data = await res.json();
       setProducts(data);
     } catch (error) {
@@ -57,7 +58,7 @@ export function useProducts(params?: { id: number }) {
   const getCategories = async () => {
     try {
       await new Promise((resolve) => setTimeout(resolve, 1000));
-      const res = await fetch("http://localhost:5000/categories");
+      const res = await fetch(`${apiLink}/categories`);
       const data = await res.json();
       setCategories(data);
     } catch (error) {
@@ -67,13 +68,10 @@ export function useProducts(params?: { id: number }) {
   const updateProduct = async (product: Product): Promise<boolean> => {
     try {
       await new Promise((resolve) => setTimeout(resolve, 1000));
-      const response = await fetch(
-        `http://localhost:5000/products/${product.id}`,
-        {
-          method: "PATCH",
-          body: JSON.stringify(product),
-        }
-      );
+      const response = await fetch(`${apiLink}/products/${product.id}`, {
+        method: "PATCH",
+        body: JSON.stringify(product),
+      });
       if (response) {
         return true;
       }
@@ -85,7 +83,7 @@ export function useProducts(params?: { id: number }) {
   };
   const getProduct = async (id: number): Promise<Product | null> => {
     try {
-      const res = await fetch("http://localhost:5000/products/" + id);
+      const res = await fetch(`${apiLink}/products/${id}`);
       const data = await res.json();
       if (data) return data;
       return null;
@@ -97,7 +95,7 @@ export function useProducts(params?: { id: number }) {
   const getProductById = async () => {
     try {
       await new Promise((resolve) => setTimeout(resolve, 1000));
-      const res = await fetch("http://localhost:5000/products/" + params?.id);
+      const res = await fetch(`${apiLink}/products/${params?.id}`);
       const data = await res.json();
       setProduct(data);
     } catch (error) {
@@ -202,7 +200,7 @@ export function useProducts(params?: { id: number }) {
   const getReviews = async () => {
     try {
       await new Promise((resolve) => setTimeout(resolve, 1000));
-      const res = await fetch("http://localhost:5000/reviews");
+      const res = await fetch(`${apiLink}/reviews`);
       const data = await res.json();
       const reviewsData = data
         .filter((r: Review) => String(r.productId) === String(params?.id))
@@ -217,7 +215,7 @@ export function useProducts(params?: { id: number }) {
   };
   const updateRating = async () => {
     try {
-      const res = await fetch("http://localhost:5000/reviews");
+      const res = await fetch(`${apiLink}/reviews`);
       if (!res.ok) throw new Error("Failed to fetch reviews");
 
       const data = await res.json();
@@ -236,17 +234,14 @@ export function useProducts(params?: { id: number }) {
 
       const totalRating = reviewsData.reduce((sum, r) => sum + r.rating, 0);
       const newRating = totalRating / reviewsData.length;
-      const productData = await fetch(
-        `http://localhost:5000/products/${params?.id}`,
-        {
-          method: "PATCH",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            rating: newRating.toFixed(2),
-            reviews: reviewsData.length,
-          }),
-        }
-      );
+      const productData = await fetch(`${apiLink}/products/${params?.id}`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          rating: newRating.toFixed(2),
+          reviews: reviewsData.length,
+        }),
+      });
       const newProduct: Product = await productData.json();
     } catch (error) {
       console.error("Error updating rating:", error);
@@ -266,7 +261,7 @@ export function useProducts(params?: { id: number }) {
         comment: comment,
         date: new Date(),
       };
-      const response = await fetch(`http://localhost:5000/reviews`, {
+      const response = await fetch(`${apiLink}/reviews`, {
         method: "POST",
         body: JSON.stringify(review),
       });

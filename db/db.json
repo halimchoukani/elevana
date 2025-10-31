@@ -209,8 +209,8 @@
         "https://s.alicdn.com/@sc04/kf/H10d3b5a967c6460d915366c7f5fd77245.jpg",
         "https://s.alicdn.com/@sc04/kf/Hd3ac9cbe783e4172ae4f2a44f2942ac1q.jpg"
       ],
-      "rating": "5.00",
-      "reviews": 1,
+      "rating": "4.50",
+      "reviews": 2,
       "stock": 156,
       "features": [
         "Amorti réactif",
@@ -557,6 +557,14 @@
       "rating": 5,
       "comment": "good product!",
       "date": "2025-10-31T21:13:16.917Z"
+    },
+    {
+      "id": "RV_1761948650070",
+      "productId": "7",
+      "userName": "Johnd Doe",
+      "rating": 4,
+      "comment": "test",
+      "date": "2025-10-31T22:10:50.070Z"
     }
   ]
 }

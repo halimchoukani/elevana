@@ -2,6 +2,7 @@ import { CartItem, Order } from "@/db/models";
 import Cookies from "js-cookie";
 import React, { useState } from "react";
 import { useProducts } from "./ProductsContext";
+import apiLink from "./constants";
 
 export default function useOrder() {
   const userId = Cookies.get("userId");
@@ -29,7 +30,7 @@ export default function useOrder() {
         item.product.stock -= item.quantity;
         await updateProduct(item.product);
       });
-      const response = await fetch("http://localhost:5000/orders", {
+      const response = await fetch(`${apiLink}/orders`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(order),
@@ -46,7 +47,7 @@ export default function useOrder() {
     setLoading(true);
     try {
       await new Promise((resolve) => setTimeout(resolve, 1000));
-      const response = await fetch("http://localhost:5000/orders", {
+      const response = await fetch(`${apiLink}/orders`, {
         method: "GET",
         headers: { "Content-Type": "application/json" },
       });

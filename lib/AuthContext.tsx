@@ -9,7 +9,7 @@ import {
 } from "react";
 import { CartItem, User } from "@/db/models";
 import Cookies from "js-cookie";
-
+import apiLink from "./constants";
 interface AuthContextType {
   user: User | null;
   login: (email: string, password: string) => Promise<boolean>;
@@ -85,7 +85,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     try {
       const userId = typeof id === "string" ? parseInt(id, 10) : id;
 
-      const response = await fetch(`http://localhost:5000/users/${userId}`, {
+      const response = await fetch(`${apiLink}/users/${userId}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -139,12 +139,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const login = async (email: string, password: string): Promise<boolean> => {
     await new Promise((resolve) => setTimeout(resolve, 1000));
     try {
-      const response = await fetch(
-        `http://localhost:5000/users?email=${email}`,
-        {
-          method: "GET",
-        }
-      );
+      const response = await fetch(`${apiLink}/users?email=${email}`, {
+        method: "GET",
+      });
       const userres = await response.json();
       const userData = userres[0] as User | undefined;
       if (userData && userData.password === password) {
@@ -199,12 +196,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const checkEmailExist = async (email: string): Promise<boolean> => {
     await new Promise((resolve) => setTimeout(resolve, 1000));
     try {
-      const response = await fetch(
-        `http://localhost:5000/users?email=${email}`,
-        {
-          method: "GET",
-        }
-      );
+      const response = await fetch(`${apiLink}/users?email=${email}`, {
+        method: "GET",
+      });
       const user = await response.json();
       const userData = user[0] as User | undefined;
       if (userData) {
@@ -225,7 +219,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     try {
       if (userData === null) return false;
       if (!(await checkEmailExist(userData.email))) {
-        const response = await fetch(`http://localhost:5000/users`, {
+        const response = await fetch(`${apiLink}/users`, {
           method: "POST",
           body: JSON.stringify(userData),
         });
@@ -254,13 +248,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     setUser(updatedUser);
 
     try {
-      const response = await fetch(
-        `http://localhost:5000/users/${thisUser.id}`,
-        {
-          method: "PATCH",
-          body: JSON.stringify(updatedUser),
-        }
-      );
+      const response = await fetch(`${apiLink}/users/${thisUser.id}`, {
+        method: "PATCH",
+        body: JSON.stringify(updatedUser),
+      });
       if (!response.ok) {
         setEditLoading(false);
         return false;
