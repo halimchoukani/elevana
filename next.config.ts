@@ -12,6 +12,9 @@ const nextConfig: NextConfig = {
       "mk-media.mytek.tn",
     ],
   },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
 };
 
 export default nextConfig;

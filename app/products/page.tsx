@@ -1,5 +1,4 @@
 "use client";
-import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { ProductCard } from "@/components/product-card";
 import { ProductFilters } from "@/components/product-filters";
@@ -14,7 +13,7 @@ export default function ProductsPage() {
   const [filteredProducts, setFilteredProducts] = useState(products);
   useEffect(() => {
     setFilteredProducts(products || []);
-  }, []);
+  }, [products]);
   const handleSort = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const sortedProducts = [...filteredProducts];
     switch (event.target.value) {

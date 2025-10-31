@@ -44,7 +44,7 @@ export default function LoginPage() {
         toast.error("Erreur de connexion");
       }
     } catch (error) {
-      toast.error("Une erreur est survenue. Veuillez réessayer.");
+      toast.error("Une erreur est survenue. Veuillez réessayer." + error);
     } finally {
       setIsLoading(false);
     }

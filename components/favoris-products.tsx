@@ -2,18 +2,11 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import {
-  Package,
-  Truck,
-  CheckCircle,
-  Clock,
-  Trash,
-  Trash2,
-} from "lucide-react";
+import { Package, Trash2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { useEffect, useState } from "react";
-import { CartItem, Order, Product } from "@/db/models";
+import { Product } from "@/db/models";
 import { Loading } from "./loading";
 import { useProducts } from "@/lib/ProductsContext";
 import { toast } from "sonner";

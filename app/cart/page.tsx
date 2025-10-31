@@ -5,9 +5,7 @@ import Image from "next/image";
 import { Trash2, Plus, Minus, ShoppingBag, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
-import { Input } from "@/components/ui/input";
 import { useCart } from "@/lib/CartContext";
 
 export default function CartPage() {

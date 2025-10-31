@@ -11,7 +11,6 @@ import {
 import { Button } from "@/components/ui/button";
 //import { Card, CardContent } from "@/components/ui/card";
 import { Footer } from "@/components/footer";
-import { Header } from "@/components/header";
 import { Loading } from "@/components/loading";
 import { useAuth } from "@/lib/AuthContext";
 import { Card, CardContent } from "@/components/ui/card";
@@ -23,7 +22,6 @@ export default function HomePage() {
     categories,
     loading: loadingProducts,
     featuredProducts,
-    products,
   } = useProducts();
   if (loading || loadingProducts) {
     return <Loading />;

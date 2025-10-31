@@ -4,10 +4,8 @@ import Link from "next/link";
 import { CheckCircle, Package, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { useSearchParams } from "next/navigation";
-import { useState } from "react";
 
 export default function OrderConfirmationPage() {
   const searchParams = useSearchParams();

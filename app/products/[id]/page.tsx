@@ -1,6 +1,5 @@
 "use client";
 import { notFound, useParams } from "next/navigation";
-import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { ProductGallery } from "@/components/product-gallery";
 import { ProductInfo } from "@/components/product-info";
@@ -9,11 +8,7 @@ import { ProductCard } from "@/components/product-card";
 import { useProducts } from "@/lib/ProductsContext";
 import { Loading } from "@/components/loading";
 
-export default function ProductDetailPage({
-  params,
-}: {
-  params: { id: string };
-}) {
+export default function ProductDetailPage() {
   const id = useParams().id as unknown as number;
 
   const { products, product, loading } = useProducts({ id });

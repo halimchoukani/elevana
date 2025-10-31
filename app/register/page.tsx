@@ -78,7 +78,7 @@ export default function RegisterPage() {
         toast.error("Erreur d'inscription : Email deja exist");
       }
     } catch (error) {
-      toast.error("Erreur");
+      toast.error("Erreur : " + error);
     } finally {
       setIsLoading(false);
     }
