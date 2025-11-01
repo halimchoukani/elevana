@@ -265,6 +265,7 @@ export function useProducts(params?: { id: number }) {
 
       const response = await fetch(`${apiLink}/reviews`, {
         method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(review),
       });
       console.log(await response.json());

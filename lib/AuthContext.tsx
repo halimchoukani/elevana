@@ -221,6 +221,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       if (!(await checkEmailExist(userData.email))) {
         const response = await fetch(`${apiLink}/users`, {
           method: "POST",
+          headers: { "Content-Type": "application/json" },
           body: JSON.stringify(userData),
         });
         const user = await response.json();
