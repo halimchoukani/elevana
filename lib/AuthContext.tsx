@@ -9,7 +9,7 @@ import {
 } from "react";
 import { CartItem, User } from "@/db/models";
 import Cookies from "js-cookie";
-import apiLink from "./constants";
+import apiLink, { apiTimingout } from "./constants";
 interface AuthContextType {
   user: User | null;
   login: (email: string, password: string) => Promise<boolean>;
@@ -38,7 +38,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, []);
   const updateCart = async (items: CartItem[]) => {
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      await new Promise((resolve) => setTimeout(resolve, apiTimingout));
       const id = Cookies.get("userId");
       if (id) {
         const user = await getUserById(id);
@@ -57,7 +57,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   };
   const getCart = async (): Promise<CartItem[] | undefined> => {
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      await new Promise((resolve) => setTimeout(resolve, apiTimingout));
       const id = Cookies.get("userId");
       if (!id) {
         const savedCart = localStorage.getItem("cart");
@@ -107,7 +107,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const isLoggedIn = async () => {
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      await new Promise((resolve) => setTimeout(resolve, apiTimingout));
 
       const savedUserData = Cookies.get("userId");
 
@@ -137,7 +137,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     }
   };
   const login = async (email: string, password: string): Promise<boolean> => {
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    await new Promise((resolve) => setTimeout(resolve, apiTimingout));
     try {
       const response = await fetch(`${apiLink}/users?email=${email}`, {
         method: "GET",
@@ -194,7 +194,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     }
   };
   const checkEmailExist = async (email: string): Promise<boolean> => {
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    await new Promise((resolve) => setTimeout(resolve, apiTimingout));
     try {
       const response = await fetch(`${apiLink}/users?email=${email}`, {
         method: "GET",
@@ -215,7 +215,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     userData: User & { password: string }
   ): Promise<boolean> => {
     // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    await new Promise((resolve) => setTimeout(resolve, apiTimingout));
     try {
       if (userData === null) return false;
       if (!(await checkEmailExist(userData.email))) {
@@ -239,7 +239,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   };
   const editProfile = async (updatedData: Partial<User>): Promise<boolean> => {
     setEditLoading(true);
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    await new Promise((resolve) => setTimeout(resolve, apiTimingout));
     const id = Cookies.get("userId");
     if (!id) return false;
     const thisUser = await getUserById(id);

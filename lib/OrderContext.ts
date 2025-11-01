@@ -2,7 +2,7 @@ import { CartItem, Order } from "@/db/models";
 import Cookies from "js-cookie";
 import React, { useState } from "react";
 import { useProducts } from "./ProductsContext";
-import apiLink from "./constants";
+import apiLink, { apiTimingout } from "./constants";
 
 export default function useOrder() {
   const userId = Cookies.get("userId");
@@ -16,7 +16,7 @@ export default function useOrder() {
     if (!userId) return null;
 
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      await new Promise((resolve) => setTimeout(resolve, apiTimingout));
       const order = {
         id: "ORDR_" + new Date().getTime(),
         userId: parseInt(userId, 10),
@@ -46,7 +46,7 @@ export default function useOrder() {
     if (!userId) return null;
     setLoading(true);
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      await new Promise((resolve) => setTimeout(resolve, apiTimingout));
       const response = await fetch(`${apiLink}/orders`, {
         method: "GET",
         headers: { "Content-Type": "application/json" },

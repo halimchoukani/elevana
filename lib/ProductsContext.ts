@@ -1,7 +1,7 @@
 import { Category, Product, Review } from "@/db/models";
 import { useEffect, useState } from "react";
 import { useAuth } from "./AuthContext";
-import apiLink from "./constants";
+import apiLink, { apiTimingout } from "./constants";
 
 export function useProducts(params?: { id: number }) {
   const [products, setProducts] = useState<Product[]>([]);
@@ -34,7 +34,7 @@ export function useProducts(params?: { id: number }) {
   }, [params?.id]);
   const getProducts = async () => {
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      await new Promise((resolve) => setTimeout(resolve, apiTimingout));
       const res = await fetch(`${apiLink}/products`);
       const data = await res.json();
       setProducts(data);
@@ -44,7 +44,7 @@ export function useProducts(params?: { id: number }) {
   };
   const getFeaturedProducts = async () => {
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      await new Promise((resolve) => setTimeout(resolve, apiTimingout));
       if (products.length === 0) return;
 
       const data = products
@@ -57,7 +57,7 @@ export function useProducts(params?: { id: number }) {
   };
   const getCategories = async () => {
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      await new Promise((resolve) => setTimeout(resolve, apiTimingout));
       const res = await fetch(`${apiLink}/categories`);
       const data = await res.json();
       setCategories(data);
@@ -67,7 +67,7 @@ export function useProducts(params?: { id: number }) {
   };
   const updateProduct = async (product: Product): Promise<boolean> => {
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      await new Promise((resolve) => setTimeout(resolve, apiTimingout));
       const response = await fetch(`${apiLink}/products/${product.id}`, {
         method: "PATCH",
         body: JSON.stringify(product),
@@ -94,7 +94,7 @@ export function useProducts(params?: { id: number }) {
   };
   const getProductById = async () => {
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      await new Promise((resolve) => setTimeout(resolve, apiTimingout));
       const res = await fetch(`${apiLink}/products/${params?.id}`);
       const data = await res.json();
       setProduct(data);
@@ -199,7 +199,7 @@ export function useProducts(params?: { id: number }) {
   };
   const getReviews = async () => {
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      await new Promise((resolve) => setTimeout(resolve, apiTimingout));
       const res = await fetch(`${apiLink}/reviews`);
       const data = await res.json();
       const reviewsData = data
@@ -252,7 +252,7 @@ export function useProducts(params?: { id: number }) {
     comment: string
   ): Promise<boolean> => {
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      await new Promise((resolve) => setTimeout(resolve, apiTimingout));
       const review: Review = {
         id: `RV_${new Date().getTime()}`,
         productId: String(params?.id),
