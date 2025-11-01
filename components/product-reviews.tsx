@@ -61,6 +61,9 @@ export function ProductReviews({
         const added = await addReview(newRating, comment);
         if (added) {
           toast.success("Avis a été ajouter avec success :)");
+          setComment("");
+          setNewRating(1);
+          window.location.reload();
         } else {
           toast.error("Echoué :)");
         }

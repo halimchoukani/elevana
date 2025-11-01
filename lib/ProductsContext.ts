@@ -261,17 +261,12 @@ export function useProducts(params?: { id: number }) {
         comment: comment,
         date: new Date(),
       };
-      console.log(review);
-
       const response = await fetch(`${apiLink}/reviews`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(review),
       });
-      console.log(await response.json());
-
       if (response) {
-        setReviews([review, ...reviews]);
         await updateRating();
         return true;
       }
