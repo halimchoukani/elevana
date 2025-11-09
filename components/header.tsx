@@ -28,6 +28,7 @@ import { Loading } from "./loading";
 import { useProducts } from "@/lib/ProductsContext";
 import SearchProducts from "./search";
 import { useCart } from "@/lib/CartContext";
+import Image from "next/image";
 
 export function Header() {
   const { totalItems } = useCart();
@@ -40,12 +41,13 @@ export function Header() {
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary">
-              <span className="text-lg font-bold text-primary-foreground">
-                E
-              </span>
-            </div>
-            <span className="text-xl font-bold">Elevana</span>
+            <Image
+              src="/logo.png"
+              alt="Elevana Logo"
+              width={24}
+              height={24}
+              className="object-contain"
+            />
           </Link>
 
           {/* Desktop Navigation */}
