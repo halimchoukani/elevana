@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     siteName: "Elevana",
     images: [
       {
-        url: "/meta-logo.png",
+        url: "https://raw.githubusercontent.com/halimchoukani/elevana/refs/heads/main/public/meta-logo.png",
         width: 1200,
         height: 630,
         alt: "Elevana Logo",
