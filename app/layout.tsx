@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     siteName: "Elevana",
     images: [
       {
-        url: "https://elevana-n381.onrender.com/_next/image?url=%2Flogo.png&w=32&q=75",
+        url: "/meta-logo.png",
         width: 1200,
         height: 630,
         alt: "Elevana Logo",
