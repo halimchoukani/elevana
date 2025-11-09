@@ -38,7 +38,13 @@ function SearchProducts({ className }: { className?: string }) {
           />
         </div>
         {searchValue !== "" && (
-          <div className="absolute top-[120%] rounded-md bg-white w-full max-h-[50vh] overflow-auto border-primary border-1 p-4 flex flex-col gap-4">
+          <div
+            className="absolute top-[120%] rounded-md bg-white w-full max-h-[50vh] overflow-auto border-primary border-1 p-4 flex flex-col gap-4"
+            tabIndex={0}
+            onBlur={(e) => {
+              setSearchValue("");
+            }}
+          >
             {searchedItems.length == 0 && <div>Aucun Produit</div>}
             {searchedItems.map((item) => {
               return (
