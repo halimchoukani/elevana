@@ -19,8 +19,6 @@ A lightweight Next.js e‑commerce demo app (TypeScript + Tailwind). This README
 - Node.js 18+ (recommended)
 - npm, pnpm or yarn
 - Recommended: install json-server globally or run it with npx
-- Linux commands shown below (you're on Linux)
-
 ---
 
 ## Install dependencies
