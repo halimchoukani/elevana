@@ -90,7 +90,7 @@ Voici quelques captures d'écran extraites du dossier `public/` :
 
 ![logo](/public/logo.png)
 
-Si vous avez d'autres images/screenshots, placez-les dans `public/` et ajoutez-les ici.
+
 
 Exemples d'utilisation rapide
 
