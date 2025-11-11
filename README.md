@@ -82,15 +82,6 @@ Fonctionnalités implémentées
 - Auth basique via cookie (flux dépendant d'un `userId` quand présent)
 - Pages utilisateur : profil, historique de commandes
 
-Captures d'écran
-
-Voici quelques captures d'écran extraites du dossier `public/` :
-
-- Logo
-
-![logo](/public/logo.png)
-
-
 
 Exemples d'utilisation rapide
 
@@ -124,6 +115,14 @@ Vérification finale
 
 
 # Capture d'écran
+
+Voici quelques captures d'écran extraites du dossier `public/` :
+
+- Logo
+
+![logo](/public/logo.png)
+
+
 
 - Page d'accueil
 
